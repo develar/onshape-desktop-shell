@@ -1,0 +1,27 @@
+{
+  "name": "onshape-desktop-shell",
+  "version": "0.0.1",
+  "description": "A Onshape web application shell",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron src/main.js",
+    "clean": "rm -rf ./dist",
+    "clean:osx": "rm -rf ./dist/Onshape-darwin-x64",
+    "clean:win": "rm -rf ./dist/win",
+    "build": "npm run clean && npm run build:osx && npm run build:win",
+    "build:osx": "npm run clean:osx && electron-packager . \"Onshape\" --out=dist --platform=darwin --arch=x64 --version=0.36.0 --icon=build/assets/Onshape.icns --ignore='(\\.idea|node_modules|\\w+\\.iml|build|dist)' --app-category-type=public.app-category.graphics-design",
+    "build:win": "npm run clean:win && electron-packager . \"Onshape\" --out=dist --platform=win32 --arch=ia32 --version=0.36.0 --icon=build/assets/Onshape.ico --ignore=node_modules",
+    "pack:osx": "npm run build:osx && electron-builder \"dist/Onshape-darwin-x64/Onshape.app\" --platform=osx --out=\"dist\" --config=build/packager.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/develar/onshape-desktop-shell.git"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.1.1",
+    "electron-prebuilt": "^0.36.0"
+  },
+  "dependencies": {
+    "electron-builder": "^2.4.0"
+  }
+}
