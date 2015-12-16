@@ -1,27 +1,34 @@
 {
   "name": "onshape-desktop-shell",
   "version": "0.0.1",
-  "description": "A Onshape web application shell",
-  "main": "src/main.js",
+  "license": "MIT",
+  "description": "Onshape desktop app (web application shell). Unofficial.",
   "scripts": {
-    "start": "electron src/main.js",
+    "start": "electron ./out",
     "clean": "rm -rf ./dist",
     "clean:osx": "rm -rf ./dist/Onshape-darwin-x64",
     "clean:win": "rm -rf ./dist/win",
+    "compile": "tsc -p src",
+    "prepare": "npm run compile && cp package.json out/package.json && cd out && npm install --production && cd ..",
     "build": "npm run clean && npm run build:osx && npm run build:win",
-    "build:osx": "npm run clean:osx && electron-packager . \"Onshape\" --out=dist --platform=darwin --arch=x64 --version=0.36.0 --icon=build/assets/Onshape.icns --ignore='(\\.idea|node_modules|\\w+\\.iml|build|dist)' --app-category-type=public.app-category.graphics-design",
-    "build:win": "npm run clean:win && electron-packager . \"Onshape\" --out=dist --platform=win32 --arch=ia32 --version=0.36.0 --icon=build/assets/Onshape.ico --ignore=node_modules",
-    "pack:osx": "npm run build:osx && electron-builder \"dist/Onshape-darwin-x64/Onshape.app\" --platform=osx --out=\"dist\" --config=build/packager.json"
+    "build:osx": "npm run clean:osx && npm run prepare && electron-packager out \"Onshape\" --out=dist --platform=darwin --arch=x64 --version=0.36.0 --icon=build/icon.icns --app-category-type=public.app-category.graphics-design && codesign --deep --force --verbose --sign 'Vladimir Krivosheev' dist/Onshape-darwin-x64/Onshape.app",
+    "build:win": "npm run clean:win && npm run prepare && electron-packager out \"Onshape\" --out=dist --platform=win32 --arch=all --version=0.36.0 --icon=build/icon.ico",
+    "pack:osx": "npm run build:osx && electron-builder 'dist/Onshape-darwin-x64/Onshape.app' --platform=osx --out='dist/Onshape-darwin-x64' --config=build/packager.json",
+    "pack:win": "npm run build:win && electron-builder 'dist/Onshape-win32-x64' --platform=win --out='dist/Onshape-win32-x64' --config=build/packager.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/develar/onshape-desktop-shell.git"
   },
+  "keywords": [
+    "Onshape"
+  ],
   "devDependencies": {
     "electron-packager": "^5.1.1",
-    "electron-prebuilt": "^0.36.0"
+    "electron-prebuilt": "^0.36.0",
+    "electron-builder": "^2.4.0"
   },
   "dependencies": {
-    "electron-builder": "^2.4.0"
+    "configstore": "^1.4.0"
   }
 }
