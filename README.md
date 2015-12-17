@@ -12,4 +12,3 @@ Please note – it is unofficial application.
 # todo
 * Keep opened windows state (restore last opened documents on launch).
 * Auto sign-in (don't to type password every launch).
-* Sign OS X app.
