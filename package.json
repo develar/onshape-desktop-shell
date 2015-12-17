@@ -10,11 +10,14 @@
     "clean:win": "rm -rf ./dist/win",
     "compile": "tsc -p src",
     "prepare": "npm run compile && cp package.json out/package.json && cd out && npm install --production && cd ..",
-    "build": "npm run clean && npm run build:osx && npm run build:win",
-    "build:osx": "npm run clean:osx && npm run prepare && electron-packager out \"Onshape\" --out=dist --platform=darwin --arch=x64 --version=0.36.0 --icon=build/icon.icns --app-category-type=public.app-category.graphics-design && codesign --deep --force --verbose --sign 'Vladimir Krivosheev' dist/Onshape-darwin-x64/Onshape.app",
-    "build:win": "npm run clean:win && npm run prepare && electron-packager out \"Onshape\" --out=dist --platform=win32 --arch=all --version=0.36.0 --icon=build/icon.ico",
+    "build:osx": "npm run clean:osx && npm run prepare && electron-packager out \"Onshape\" --out=dist --platform=darwin --arch=x64 --version=0.36.0 --icon=build/icon.icns --asar=true --app-category-type=public.app-category.graphics-design && codesign --deep --force --verbose --sign 'Vladimir Krivosheev' dist/Onshape-darwin-x64/Onshape.app",
+    "build:win": "npm run clean:win && npm run prepare && electron-packager out \"Onshape\" --out=dist/win --platform=win32 --arch=all --version=0.36.0 --icon=build/icon.ico --asar=true",
+    "build": "npm run build:osx && npm run build:win",
     "pack:osx": "npm run build:osx && electron-builder 'dist/Onshape-darwin-x64/Onshape.app' --platform=osx --out='dist/Onshape-darwin-x64' --config=build/packager.json",
-    "pack:win": "npm run build:win && electron-builder 'dist/Onshape-win32-x64' --platform=win --out='dist/Onshape-win32-x64' --config=build/packager.json"
+    "pack:win32": "electron-builder 'dist/win/Onshape-win32-x64' --platform=win --out='dist/win' --config=build/packager.json",
+    "pack:win64": "electron-builder 'dist/win/Onshape-win32-ia32' --platform=win --out='dist/win' --config=build/packager.json",
+    "pack:win": "npm run build:win && npm run pack:win64 && mv 'dist/win/Onshape Setup.exe' 'dist/win/Onshape Setup x64.exe' && npm run pack:win32",
+    "pack": "npm run pack:osx && npm run pack:win"
   },
   "repository": {
     "type": "git",
