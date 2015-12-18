@@ -1,16 +1,17 @@
 {
   "name": "onshape-desktop-shell",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell). Unofficial.",
+  "private": true,
   "scripts": {
-    "start": "electron ./out",
-    "clean": "rm -rf ./dist",
-    "clean:osx": "rm -rf ./dist/Onshape-darwin-x64",
-    "clean:win": "rm -rf ./dist/win",
-    "compile": "tsc -p src",
-    "prepare": "npm run compile && cp package.json out/package.json && cd out && npm install --production && cd ..",
-    "build:osx": "npm run clean:osx && npm run prepare && electron-packager out \"Onshape\" --out=dist --platform=darwin --arch=x64 --version=0.36.0 --icon=build/icon.icns --asar=true --app-category-type=public.app-category.graphics-design && codesign --deep --force --verbose --sign 'Vladimir Krivosheev' dist/Onshape-darwin-x64/Onshape.app",
+    "start": "npm run prepare && electron ./out",
+    "clean": "rimraf dist",
+    "clean:osx": "rimraf dist/Onshape-darwin-x64",
+    "clean:win": "rimraf dist/win",
+    "compile": "rimraf out/*.js && tsc -p src",
+    "prepare": "npm run compile && cp package.json out/package.json && cd out && npm prune --production && npm install --production && cd ..",
+    "build:osx": "npm run clean:osx && npm run prepare && node build/build.js && codesign --deep --force --verbose --sign 'Vladimir Krivosheev' dist/Onshape-darwin-x64/Onshape.app",
     "build:win": "npm run clean:win && npm run prepare && electron-packager out \"Onshape\" --out=dist/win --platform=win32 --arch=all --version=0.36.0 --icon=build/icon.ico --asar=true",
     "build": "npm run build:osx && npm run build:win",
     "pack:osx": "npm run build:osx && electron-builder 'dist/Onshape-darwin-x64/Onshape.app' --platform=osx --out='dist/Onshape-darwin-x64' --config=build/packager.json",
@@ -27,9 +28,11 @@
     "Onshape"
   ],
   "devDependencies": {
-    "electron-packager": "^5.1.1",
+    "electron-builder": "^2.4.0",
+    "electron-packager": "^5.2.0",
     "electron-prebuilt": "^0.36.0",
-    "electron-builder": "^2.4.0"
+    "rimraf": "^2.4.4",
+    "typescript": "^1.8.0-dev.20151217"
   },
   "dependencies": {
     "configstore": "^1.4.0"
