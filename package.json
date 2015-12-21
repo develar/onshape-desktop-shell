@@ -1,18 +1,19 @@
 {
   "name": "onshape-desktop-shell",
-  "version": "0.0.2",
+  "version": "0.2.0",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell). Unofficial.",
   "private": true,
   "scripts": {
+    "deps": "npm install && electron-rebuild .",
     "start": "npm run prepare && electron ./out",
     "clean": "rimraf dist",
     "clean:osx": "rimraf dist/Onshape-darwin-x64",
     "clean:win": "rimraf dist/win",
     "compile": "rimraf out/*.js && tsc -p src",
-    "prepare": "npm run compile && cp package.json out/package.json && cd out && npm prune --production && npm install --production && cd ..",
-    "build:osx": "npm run clean:osx && npm run prepare && node build/build.js && codesign --deep --force --verbose --sign 'Vladimir Krivosheev' dist/Onshape-darwin-x64/Onshape.app",
-    "build:win": "npm run clean:win && npm run prepare && electron-packager out \"Onshape\" --out=dist/win --platform=win32 --arch=all --version=0.36.0 --icon=build/icon.ico --asar=true",
+    "prepare": "npm run compile && cp package.json out/package.json && cd out && npm prune --production && npm install --production && electron-rebuild . && cd ..",
+    "build:osx": "npm run prepare && node build/build.js",
+    "build:win": "npm run clean:win && npm run prepare && electron-packager out \"Onshape\" --out=dist/win --platform=win32 --arch=all --version=0.36.1 --icon=build/icon.ico --asar=true",
     "build": "npm run build:osx && npm run build:win",
     "pack:osx": "npm run build:osx && electron-builder 'dist/Onshape-darwin-x64/Onshape.app' --platform=osx --out='dist/Onshape-darwin-x64' --config=build/packager.json",
     "pack:win32": "electron-builder 'dist/win/Onshape-win32-x64' --platform=win --out='dist/win' --config=build/packager.json",
@@ -30,11 +31,14 @@
   "devDependencies": {
     "electron-builder": "^2.4.0",
     "electron-packager": "^5.2.0",
-    "electron-prebuilt": "^0.36.0",
+    "electron-prebuilt": "^0.36.1",
+    "electron-rebuild": "^1.0.2",
     "rimraf": "^2.4.4",
-    "typescript": "^1.8.0-dev.20151217"
+    "typescript": "^1.8.0-dev.20151219"
   },
   "dependencies": {
-    "configstore": "^1.4.0"
+    "configstore": "^1.4.0",
+    "electron-debug": "^0.5.1",
+    "keytar": "^3.0.0"
   }
 }

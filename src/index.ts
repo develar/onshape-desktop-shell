@@ -3,9 +3,9 @@ import electron = require("electron")
 import BrowserWindow = GitHubElectron.BrowserWindow
 import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
 
-let stateManager = new StateManager()
+require('electron-debug')()
 
-electron.crashReporter.start()
+let stateManager = new StateManager()
 
 let windows: Array<BrowserWindow> = []
 let app = electron.app
@@ -24,6 +24,30 @@ app.on("window-all-closed", () => {
   }
 })
 
+function registerWindowEventHandlers(window: BrowserWindow, initialUrl: string) {
+  window.on("closed", () => {
+    var index = windows.indexOf(window)
+    console.assert(index >= 0)
+    windows.splice(index, 1)
+  })
+
+  let webContents = window.webContents
+  // cannot find way to listen url change in pure JS
+  let frameFinishLoadedId: NodeJS.Timer = null
+  webContents.on("did-frame-finish-load", (event: any, isMainFrame: boolean) => {
+    if (frameFinishLoadedId != null) {
+      clearTimeout(frameFinishLoadedId)
+      frameFinishLoadedId = null
+    }
+    frameFinishLoadedId = setTimeout(() => {
+      webContents.send("maybeUrlChanged")
+    }, 300)
+  })
+  webContents.on("will-navigate", (e: any, u: string) => {
+    console.log("will-navigate", webContents.getURL(), e)
+  })
+}
+
 function openWindows() {
   let descriptors = stateManager.getWindows()
   if (descriptors == null || descriptors.length === 0) {
@@ -35,9 +59,10 @@ function openWindows() {
     let options: BrowserWindowOptions = {
       // to avoid visible maximizing
       show: false,
+      preload: __dirname + "/autoSignIn.js",
       webPreferences: {
         // fix jquery issue (https://github.com/atom/electron/issues/254), and in any case node integration is not required
-        nodeIntegration: false
+        nodeIntegration: false,
       }
     }
 
@@ -56,11 +81,7 @@ function openWindows() {
     }
     window.loadURL(descriptor.url)
     window.show()
-    window.on("closed", () => {
-      var index = windows.indexOf(window)
-      console.assert(index >= 0)
-      windows.splice(index, 1)
-    })
+    registerWindowEventHandlers(window, descriptor.url)
     windows.push(window)
   }
 }

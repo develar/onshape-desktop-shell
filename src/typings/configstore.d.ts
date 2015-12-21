@@ -18,5 +18,5 @@ declare module 'configstore' {
     del(key: string): void;
   }
 
-  export = ConfigStore;
+  export = ConfigStore
 }
