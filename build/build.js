@@ -1,10 +1,10 @@
 "use strict"
 
-let outDir = "dist/Onshape-darwin-x64";
+let outDir = "dist/Onshape-darwin-x64"
 require("rimraf").sync(outDir)
 
 let fs = require("fs")
-let packageJson = JSON.parse(fs.readFileSync("./package.json"))
+let packageJson = JSON.parse(fs.readFileSync(__dirname + "../package.json"))
 
 const args = process.argv.slice(2)
 

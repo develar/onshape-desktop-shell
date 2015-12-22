@@ -2,6 +2,7 @@
   "name": "Onshape",
   "version": "0.1.0",
   "private": true,
+  "main": "./out/index.js",
   "dependencies": {
     "configstore": "^1.4.0",
     "electron-debug": "^0.5.1",

@@ -1,16 +1,15 @@
 {
-  "name": "onshape-desktop-shell",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "postinstall": "cd app && npm install",
+    "postinstall": "node build/install-production-deps.js",
     "start": "npm install && npm run compile && electron ./app",
     "clean": "rimraf dist",
     "clean:osx": "rimraf dist/Onshape-darwin-x64",
     "clean:win": "rimraf dist/win",
     "compile": "rimraf app/out && tsc -p src",
     "build:osx": "npm run compile && node build/build.js",
-    "build:win": "npm run clean:win && npm run compile && electron-packager out \"Onshape\" --out=dist/win --platform=win32 --arch=all --version=0.36.1 --icon=build/icon.ico --asar=true",
+    "build:win": "npm run clean:win && npm run compile && electron-packager out Onshape --out=dist/win --platform=win32 --arch=all --version=0.36.1 --icon=build/icon.ico --asar=true",
     "build": "npm run build:osx && npm run build:win",
     "pack:osx": "npm run compile && node build/build.js --pack",
     "pack:win32": "electron-builder 'dist/win/Onshape-win32-x64' --platform=win --out='dist/win' --config=build/packager.json",
@@ -26,8 +25,8 @@
     "electron-builder": "^2.4.0",
     "electron-packager": "^5.2.0",
     "electron-prebuilt": "^0.36.1",
-    "electron-rebuild": "^1.0.2",
+    "merge": "^1.2.0",
     "rimraf": "^2.4.4",
-    "typescript": "^1.8.0-dev.20151221"
+    "typescript": "^1.8.0-dev.20151222"
   }
 }

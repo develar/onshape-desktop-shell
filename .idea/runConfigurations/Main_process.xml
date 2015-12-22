@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Main process" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="$PROJECT_DIR$/node_modules/.bin/electron" node-parameters="." working-dir="$PROJECT_DIR$/app">
+    <method />
+  </configuration>
+</component>
