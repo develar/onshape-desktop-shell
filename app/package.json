@@ -1,0 +1,10 @@
+{
+  "name": "Onshape",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "configstore": "^1.4.0",
+    "electron-debug": "^0.5.1",
+    "keytar": "^3.0.0"
+  }
+}

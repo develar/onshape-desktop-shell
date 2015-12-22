@@ -1,3 +1,7 @@
+declare class Notification {
+  constructor(title: string, options: any)
+}
+
 (function (): void {
   "use strict"
 
@@ -9,7 +13,16 @@
   let foundFormElementTimerId: number = -1
   let oldUrl: string = null
 
-  require("electron").ipcRenderer.on("maybeUrlChanged", () => { maybeUrlChanged(true) })
+  let ipcRenderer = require("electron").ipcRenderer;
+  ipcRenderer.on("maybeUrlChanged", () => {
+    maybeUrlChanged(true)
+  })
+
+  ipcRenderer.on("notify", (event:any, title: string, message: string) => {
+    new Notification(title, {
+      body: message
+    })
+  })
 
   document.addEventListener("DOMContentLoaded", () => {
      checkLocationAndSignInIfNeed()

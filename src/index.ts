@@ -1,14 +1,15 @@
-import StateManager from "./StateManager"
-import electron = require("electron")
+import { app, BrowserWindow as BrowserWindowElectron } from "electron"
 import BrowserWindow = GitHubElectron.BrowserWindow
 import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
+import StateManager from "./StateManager"
+import ApplicationUpdater from "./ApplicationUpdater"
+import setMenu from "./menu"
 
 require('electron-debug')()
 
 let stateManager = new StateManager()
 
 let windows: Array<BrowserWindow> = []
-let app = electron.app
 
 app.on("window-all-closed", () => {
   // restore default set of windows
@@ -43,9 +44,6 @@ function registerWindowEventHandlers(window: BrowserWindow, initialUrl: string) 
       webContents.send("maybeUrlChanged")
     }, 300)
   })
-  webContents.on("will-navigate", (e: any, u: string) => {
-    console.log("will-navigate", webContents.getURL(), e)
-  })
 }
 
 function openWindows() {
@@ -75,7 +73,7 @@ function openWindows() {
       isMaximized = true
     }
 
-    let window = new electron.BrowserWindow(options)
+    let window = new BrowserWindowElectron(options)
     if (isMaximized) {
       window.maximize()
     }
@@ -84,8 +82,11 @@ function openWindows() {
     registerWindowEventHandlers(window, descriptor.url)
     windows.push(window)
   }
+
+  new ApplicationUpdater(windows[0])
 }
 
 app.on("ready", () => {
+  setMenu()
   openWindows()
 })
