@@ -5,12 +5,12 @@
       <value>
         <option name="AUTODETECT_INDENTS" value="false" />
         <option name="LINE_SEPARATOR" value="&#10;" />
+        <TypeScriptCodeStyleSettings>
+          <option name="SPACE_AFTER_TYPE_COLON" value="true" />
+        </TypeScriptCodeStyleSettings>
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
-        <editorconfig>
-          <option name="ENABLED" value="false" />
-        </editorconfig>
         <codeStyleSettings language="JSON">
           <indentOptions>
             <option name="CONTINUATION_INDENT_SIZE" value="2" />
