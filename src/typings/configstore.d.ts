@@ -1,5 +1,9 @@
 declare module 'configstore' {
   class ConfigStore {
+    path: string
+
+    all: any
+
     constructor(name: string, defaults?: any)
 
     /*

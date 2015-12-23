@@ -1,18 +1,18 @@
 "use strict"
 
-let outDir = "dist/Onshape-darwin-x64"
+const outDir = "dist/Onshape-darwin-x64"
 require("rimraf").sync(outDir)
 
-let fs = require("fs")
-let packageJson = JSON.parse(fs.readFileSync(__dirname + "../package.json"))
+const fs = require("fs")
+const packageJson = JSON.parse(fs.readFileSync(__dirname + "/../package.json"))
 
-const args = process.argv.slice(2)
+const args = require("command-line-args")([{name: "pack", type: Boolean}, {name: "sign", type: String}]).parse()
 
-let packager = require("electron-packager")
-var version = packageJson.version
+const packager = require("electron-packager")
+const version = JSON.parse(fs.readFileSync(__dirname + "/../app/package.json")).version
 
 packager({
-  dir: "out",
+  dir: "app",
   out: "dist",
   name: "Onshape",
   platform: "darwin",
@@ -24,14 +24,14 @@ packager({
   "build-version": version,
   "app-bundle-id": "org.develar.onshape",
   "app-category-type": "public.app-category.graphics-design",
-  sign: "Vladimir Krivosheev"
+  sign: args.sign
 }, function (error) {
   if (error != null) {
     //noinspection JSClosureCompilerSyntax
     throw new Error(error)
   }
 
-  if (args.indexOf("--pack") >= 0) {
+  if (args.pack) {
     pack()
   }
 })

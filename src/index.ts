@@ -1,15 +1,16 @@
-import { app, BrowserWindow as BrowserWindowElectron } from "electron"
+import { app, ipcMain, BrowserWindow as BrowserWindowElectron } from "electron"
 import BrowserWindow = GitHubElectron.BrowserWindow
 import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
-import StateManager from "./StateManager"
+import { StateManager, WindowItem } from "./StateManager"
 import ApplicationUpdater from "./ApplicationUpdater"
 import setMenu from "./menu"
+import { log } from "./util"
 
 require('electron-debug')()
 
-let stateManager = new StateManager()
+const stateManager = new StateManager()
 
-let windows: Array<BrowserWindow> = []
+const windows: Array<BrowserWindow> = []
 
 app.on("window-all-closed", () => {
   // restore default set of windows
@@ -25,9 +26,35 @@ app.on("window-all-closed", () => {
   }
 })
 
-function registerWindowEventHandlers(window: BrowserWindow, initialUrl: string) {
-  window.on("closed", () => {
-    var index = windows.indexOf(window)
+interface WindowEvent {
+  sender: BrowserWindow
+}
+
+function saveWindowState(window: BrowserWindow, descriptor: WindowItem) {
+  if (window.isMaximized()) {
+    delete descriptor.width
+    delete descriptor.height
+    delete descriptor.x
+    delete descriptor.y
+  }
+  else {
+    const bounds = window.getBounds()
+    descriptor.width = bounds.width
+    descriptor.height = bounds.height
+    descriptor.x = bounds.x
+    descriptor.y = bounds.y
+  }
+}
+
+function registerWindowEventHandlers(window: BrowserWindow, descriptor: WindowItem) {
+  window.on("close", (event: WindowEvent) => {
+    let window = event.sender
+    saveWindowState(window, descriptor)
+    descriptor.url = window.webContents.getURL()
+    stateManager.save()
+  })
+  window.on("closed", (event: WindowEvent) => {
+    const index = windows.indexOf(event.sender)
     console.assert(index >= 0)
     windows.splice(index, 1)
   })
@@ -53,7 +80,7 @@ function openWindows() {
     descriptors = stateManager.getWindows()
   }
 
-  for (var descriptor of descriptors) {
+  for (const descriptor of descriptors) {
     let options: BrowserWindowOptions = {
       // to avoid visible maximizing
       show: false,
@@ -64,22 +91,25 @@ function openWindows() {
       }
     }
 
-    let isMaximized = false
+    let isMaximized = true
     if (descriptor.width != null && descriptor.height != null) {
       options.width = descriptor.width
       options.height = descriptor.height
+      isMaximized = false
     }
-    else {
-      isMaximized = true
+    if (descriptor.x != null && descriptor.y != null) {
+      options.x = descriptor.x
+      options.y = descriptor.y
+      isMaximized = false
     }
 
-    let window = new BrowserWindowElectron(options)
+    const window = new BrowserWindowElectron(options)
     if (isMaximized) {
       window.maximize()
     }
     window.loadURL(descriptor.url)
     window.show()
-    registerWindowEventHandlers(window, descriptor.url)
+    registerWindowEventHandlers(window, descriptor)
     windows.push(window)
   }
 
@@ -87,6 +117,10 @@ function openWindows() {
 }
 
 app.on("ready", () => {
+  ipcMain.on("log.error", (event: any, arg: any) => {
+    log(arg)
+  })
+
   setMenu()
   openWindows()
 })

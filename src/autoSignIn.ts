@@ -6,14 +6,16 @@ declare class Notification {
   "use strict"
 
   const SERVICE_NAME = "org.develar.onshape"
-  const LOCAL_STORAGE_LOGIN_KEY = SERVICE_NAME.replace('.', '_') + ".login"
+  const LOGIN_NAME = "data"
+
+  const keytar = require("keytar")
 
   let passwordToSave: Credentials = null
   let maybeUrlChangedTimerId: any = null
   let foundFormElementTimerId: number = -1
   let oldUrl: string = null
 
-  let ipcRenderer = require("electron").ipcRenderer;
+  const ipcRenderer = require("electron").ipcRenderer;
   ipcRenderer.on("maybeUrlChanged", () => {
     maybeUrlChanged(true)
   })
@@ -33,6 +35,29 @@ declare class Notification {
     }
   }
 
+  function loadCredentials(): Credentials {
+    var data = keytar.getPassword(SERVICE_NAME, LOGIN_NAME)
+    if (isNotEmpty(data)) {
+      try {
+        var parsed = JSON.parse(data)
+        if (Array.isArray(parsed)) {
+          if (parsed.length == 2) {
+            return new Credentials(parsed[0], parsed[1])
+          }
+          else {
+            // don't sent "parsed" due to security reasons
+            ipcRenderer.send("log.error", "Incorrect credentials data, see keychain")
+          }
+        }
+      }
+      catch (e) {
+        console.error(e)
+        ipcRenderer.send("log.error", e)
+      }
+    }
+    return null
+  }
+
   function getInputElement(name: string) {
     return <HTMLInputElement>document.querySelector('input[name="' + name + '"]');
   }
@@ -49,13 +74,12 @@ declare class Notification {
   }
 
   function fillAndSubmit(formElement: HTMLFormElement) {
-    let login: string = localStorage.getItem(LOCAL_STORAGE_LOGIN_KEY)
-    if (isNotEmpty(login)) {
-      setValue(getInputElement("email"), login)
+    const credentials = loadCredentials()
+    if (credentials != null && isNotEmpty(credentials.login)) {
+      setValue(getInputElement("email"), credentials.login)
 
-      let password = require("keytar").getPassword(SERVICE_NAME, login)
-      if (isNotEmpty(password)) {
-        setValue(getInputElement("password"), password);
+      if (isNotEmpty(credentials.password)) {
+        setValue(getInputElement("password"), credentials.password);
         (<HTMLButtonElement>document.querySelector('div.os-form-btn-container > button[type="submit"')).click()
         return
       }
@@ -126,11 +150,9 @@ declare class Notification {
     }
 
     if (passwordToSave != null) {
-      if (newLocation.host == "cad.onshape.com")
-        if (oldUrl.endsWith("/signin") && newLocation.pathname != "/signup/forgotpassword") {
-          localStorage.setItem(LOCAL_STORAGE_LOGIN_KEY, passwordToSave.login)
-          require("keytar").replacePassword(SERVICE_NAME, passwordToSave.login, passwordToSave.password)
-        }
+      if (newLocation.host == "cad.onshape.com" && oldUrl.endsWith("/signin") && newLocation.pathname != "/signup/forgotpassword") {
+        keytar.replacePassword(SERVICE_NAME, LOGIN_NAME, JSON.stringify([passwordToSave.login, passwordToSave.password]))
+      }
       passwordToSave = null
     }
     else if (document.readyState != "loading") {
