@@ -26,5 +26,8 @@ You don't need to worry about updates, once installed, application will be updat
 <img src="https://15254b2dcaab7f5478ab-24461f391e20b7336331d5789078af53.ssl.cf1.rackcdn.com/onshape.vanillaforums.com/editor/qr/i9avv2xcmpzw.png"/>
 </p>
 
+# How to report issues
+You can ask questions, request improvements and file issues in the [tracker](https://github.com/develar/onshape-desktop-shell/issues).
+
 # todo
 * Keep opened windows state (restore last opened documents on launch).
