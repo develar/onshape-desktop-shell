@@ -9,7 +9,7 @@ What if you want to easily switch to Onshape using cmd+tab? And not to lose Onsh
 
 # Installation
 ## OS X
-Nothing special. Just [download](https://onshape-download.develar.org/download/osx), double click to mount it and drag the application icon to the `/Application` folder. 
+Nothing special. Just [download](https://onshape-download.develar.org/download/osx), double click to mount it and drag the application icon to the `/Applications` folder. 
 
 After the app is dragged to your Applications folder, you can run it normally — from the Finder, Launchpad, Spotlight, dock, or anything else. The first time you open a downloaded application, you’ll see a warning. Agree to open the file and you won’t see the warning again. See [short](http://apple.stackexchange.com/questions/1171/how-do-i-install-an-application-from-a-dmg-disk-image) or [long](http://www.howtogeek.com/177619/how-to-install-applications-on-a-mac-everything-you-need-to-know/) (“DMG Files" section”) guide.
 
