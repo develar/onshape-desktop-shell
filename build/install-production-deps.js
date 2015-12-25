@@ -1,12 +1,12 @@
 "use strict"
 
 const fs = require("fs")
-const spawnSync = require('child_process').spawnSync
+const spawnSync = require("child_process").spawnSync
 const packageJson = JSON.parse(fs.readFileSync(__dirname + "/../package.json"))
 
 const args = require("command-line-args")({name: "arch", type: String}).parse()
 
-const env = require('merge')(process.env, {
+const env = Object.assign(process.env, {
   npm_config_disturl: "https://atom.io/download/atom-shell",
   npm_config_target: packageJson.devDependencies["electron-prebuilt"].substring(1),
   npm_config_arch: "x64",

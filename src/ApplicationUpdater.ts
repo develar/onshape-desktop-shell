@@ -16,9 +16,9 @@ export default class ApplicationUpdater {
       return
     }
 
-    let version = app.getVersion()
-    autoUpdater.addListener("update-available", (event: any, releaseNotes: string, releaseName: string, releaseDate: string, updateURL: string) => {
-      log("A new update is available", `Version ${releaseName} is available and will be automatically downloaded`)
+    const version = app.getVersion()
+    autoUpdater.addListener("update-available", (event: any) => {
+      log("A new update is available")
     })
     autoUpdater.addListener("update-downloaded", (event: any, releaseNotes: string, releaseName: string, releaseDate: string, updateURL: string) => {
       notify("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`)
@@ -26,13 +26,13 @@ export default class ApplicationUpdater {
     autoUpdater.addListener("error", (error: any) => {
       log(error)
     })
-    autoUpdater.addListener("checking-for-update", () => {
+    autoUpdater.addListener("checking-for-update", (event: any) => {
       log("checking-for-update")
     })
     autoUpdater.addListener("update-not-available", () => {
       log("update-not-available")
     })
-    autoUpdater.setFeedURL(`http://${UPDATE_SERVER_HOST}/update/${os.platform()}_${os.arch()}/${version}`)
+    autoUpdater.setFeedURL(`https://${UPDATE_SERVER_HOST}/update/${os.platform()}_${os.arch()}/${version}`)
 
     window.webContents.once("did-frame-finish-load", (event: any) => {
       autoUpdater.checkForUpdates()

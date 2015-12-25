@@ -1,7 +1,7 @@
 import { app, ipcMain, BrowserWindow as BrowserWindowElectron } from "electron"
 import BrowserWindow = GitHubElectron.BrowserWindow
 import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
-import { StateManager, WindowItem } from "./StateManager"
+import { StateManager, WindowItem, DEFAULT_URL } from "./StateManager"
 import ApplicationUpdater from "./ApplicationUpdater"
 import setMenu from "./menu"
 import { log } from "./util"
@@ -48,9 +48,12 @@ function saveWindowState(window: BrowserWindow, descriptor: WindowItem) {
 
 function registerWindowEventHandlers(window: BrowserWindow, descriptor: WindowItem) {
   window.on("close", (event: WindowEvent) => {
-    let window = event.sender
+    const window = event.sender
     saveWindowState(window, descriptor)
-    descriptor.url = window.webContents.getURL()
+    const url = window.webContents.getURL()
+    if (url != "about:blank") {
+      descriptor.url = url
+    }
     stateManager.save()
   })
   window.on("closed", (event: WindowEvent) => {
@@ -81,7 +84,12 @@ function openWindows() {
   }
 
   for (const descriptor of descriptors) {
-    let options: BrowserWindowOptions = {
+    if (descriptor.url == "about:blank") {
+      // was error on load
+      descriptor.url = DEFAULT_URL
+    }
+
+    const options: BrowserWindowOptions = {
       // to avoid visible maximizing
       show: false,
       preload: __dirname + "/autoSignIn.js",

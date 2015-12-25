@@ -37,10 +37,11 @@ packager({
 })
 
 function pack() {
-  let outDir = `${__dirname}/../dist/Onshape-darwin-x64`
-  let appName = "Onshape"
+  const outDir = `${__dirname}/../dist/Onshape-darwin-x64`
+  const appName = "Onshape"
+  const appPath = `${outDir}/${appName}.app`
   require("electron-builder").init().build({
-    "appPath": `${outDir}/${appName}.app`,
+    "appPath": appPath,
     "platform": "osx",
     "out": outDir,
     "config": `${__dirname}/packager.json`,
@@ -51,5 +52,10 @@ function pack() {
     }
 
     fs.renameSync(`${outDir}/${appName}.dmg`, `${outDir}/${appName}-${version}.dmg`)
+    const spawnSync = require("child_process").spawnSync
+    spawnSync("zip", ["-ryX", `${outDir}/${appName}-${version}.zip`, appName + ".app"], {
+        cwd: outDir,
+        stdio: "inherit",
+      })
   })
 }

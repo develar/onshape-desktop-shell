@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Packed App" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="$PROJECT_DIR$/dist/Onshape-darwin-x64/Onshape.app/Contents/MacOS/Electron" working-dir="$PROJECT_DIR$">
+    <method />
+  </configuration>
+</component>

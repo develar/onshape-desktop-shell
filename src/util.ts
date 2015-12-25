@@ -1,7 +1,7 @@
 import { app } from "electron"
 
 export function isDev() {
-  return app.getAppPath().indexOf("/node_modules/electron-prebuilt/")
+  return app.getAppPath().includes("/node_modules/electron-prebuilt/")
 }
 
 let _log: (...args: any[]) => void

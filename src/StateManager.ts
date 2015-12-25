@@ -5,9 +5,11 @@ import * as path from "path"
 import ConfigStore = require("configstore")
 import { isDev } from "./util"
 
+export const DEFAULT_URL = "https://cad.onshape.com/"
+
 function defaultWindows() {
   return [
-    {url: "https://cad.onshape.com/"}
+    {url: DEFAULT_URL}
   ]
 }
 
