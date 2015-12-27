@@ -8,14 +8,14 @@
     "clean:osx": "rimraf dist/Onshape-darwin-x64",
     "clean:win": "rimraf dist/win",
     "compile": "rimraf app/out && tsc -p src",
-    "build:osx": "npm run compile && node build/build.js",
-    "build:win": "npm run clean:win && npm run compile && electron-packager out Onshape --out=dist/win --platform=win32 --arch=all --version=0.36.1 --icon=build/icon.ico --asar=true",
-    "build": "npm run build:osx && npm run build:win",
-    "pack:osx": "npm run compile && node build/build.js --pack --sign='Vladimir Krivosheev'",
-    "pack:win32": "electron-builder 'dist/win/Onshape-win32-x64' --platform=win --out='dist/win' --config=build/packager.json",
-    "pack:win64": "electron-builder 'dist/win/Onshape-win32-ia32' --platform=win --out='dist/win' --config=build/packager.json",
-    "pack:win": "npm run build:win && npm run pack:win64 && mv 'dist/win/Onshape Setup.exe' 'dist/win/Onshape Setup x64.exe' && npm run pack:win32",
-    "pack": "npm run pack:osx && npm run pack:win"
+    "pack:osx": "npm run compile && node build/build.js --platform=darwin",
+    "pack:win": "npm run compile && node build/build.js --platform=win32",
+    "pack": "npm run pack:osx && npm run pack:win",
+    "build:osx": "npm run compile && node build/build.js --build --sign='Vladimir Krivosheev'",
+    "build:win32": "electron-builder 'dist/win/Onshape-win32-x64' --platform=win --out='dist/win' --config=build/packager.json",
+    "build:win64": "electron-builder 'dist/win/Onshape-win32-ia32' --platform=win --out='dist/win' --config=build/packager.json",
+    "build:win": "npm run build:win && npm run pack:win64 && mv 'dist/win/Onshape Setup.exe' 'dist/win/Onshape Setup x64.exe' && npm run pack:win32",
+    "build": "npm run build:osx && npm run build:win"
   },
   "repository": {
     "type": "git",

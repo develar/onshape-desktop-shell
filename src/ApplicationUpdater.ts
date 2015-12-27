@@ -12,7 +12,7 @@ export default class ApplicationUpdater {
       return
     }
 
-    if (os.platform() != "darwin") {
+    if (os.platform() !== "darwin") {
       return
     }
 

@@ -36,7 +36,7 @@ declare class Notification {
   }
 
   function loadCredentials(): Credentials {
-    var data = keytar.getPassword(SERVICE_NAME, LOGIN_NAME)
+    const data = keytar.getPassword(SERVICE_NAME, LOGIN_NAME)
     if (isNotEmpty(data)) {
       try {
         var parsed = JSON.parse(data)
