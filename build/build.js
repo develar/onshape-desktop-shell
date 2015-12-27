@@ -31,15 +31,16 @@ let currentArchIndex = 0
 pack()
 
 function pack() {
-  console.log("Install dependencies for arch " + arch[currentArchIndex])
-  util.installDependencies(arch[currentArchIndex])
+  const currentArch = arch[currentArchIndex]
+  console.log("Install dependencies for arch " + currentArch)
+  util.installDependencies(currentArch)
 
   packager({
     dir: "app",
     out: "dist" + (args.platform === "win32" ? "/win" : ""),
     name: "Onshape",
     platform: args.platform,
-    arch: arch[currentArchIndex],
+    arch: currentArch,
     version: util.packageJson.devDependencies["electron-prebuilt"].substring(1),
     icon: "build/icon",
     asar: true,
@@ -56,7 +57,7 @@ function pack() {
 
     currentArchIndex++
     if (args.build) {
-      build(currentArchIndex < arch.length ? function () {
+      build(currentArch, currentArchIndex < arch.length ? function () {
         pack()
       } : null)
     }
@@ -66,26 +67,31 @@ function pack() {
   })
 }
 
-function build(doneHandler) {
+function build(arch, doneHandler) {
   const appName = "Onshape"
-  const appPath = `${outDir}/${appName}.app`
+  const appPath = args.platform === "darwin" ? `${outDir}/${appName}.app` : `${outDir}/${appName}-win32-${arch}`
   require("electron-builder").init().build({
     "appPath": appPath,
     "platform": args.platform === "darwin" ? "osx" : "win",
     "out": outDir,
-    "config": `${__dirname}/packager.json`,
+    "config": path.join(__dirname, "packager.json"),
   }, function callback(error) {
     if (error != null) {
       //noinspection JSClosureCompilerSyntax
       throw new Error(error)
     }
 
-    fs.renameSync(`${outDir}/${appName}.dmg`, `${outDir}/${appName}-${version}.dmg`)
-    const spawnSync = require("child_process").spawnSync
-    util.reportResult(spawnSync("zip", ["-ryX", `${outDir}/${appName}-${version}.zip`, appName + ".app"], {
-      cwd: outDir,
-      stdio: "inherit",
-    }))
+    if (isMacBuild) {
+      fs.renameSync(path.join(outDir, appName + ".dmg"), path.join(outDir, appName + "-" + version + ".dmg"))
+      const spawnSync = require("child_process").spawnSync
+      util.reportResult(spawnSync("zip", ["-ryX", `${outDir}/${appName}-${version}-mac.zip`, appName + ".app"], {
+        cwd: outDir,
+        stdio: "inherit",
+      }))
+    }
+    else {
+      fs.renameSync(path.join(outDir, "Onshape Setup.exe"), path.join(outDir, "Onshape-Setup-" + version + ((arch === "x64") ? "-x64" : "") + ".exe"))
+    }
 
     if (doneHandler != null) {
       doneHandler()
