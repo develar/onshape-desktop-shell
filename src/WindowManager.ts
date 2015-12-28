@@ -119,6 +119,16 @@ export default class WindowManager {
 
     new ApplicationUpdater(this.windows[0])
   }
+
+  focusFirstWindow(): void {
+    if (this.windows.length > 0) {
+      const window = this.windows[0]
+      if (window.isMinimized()) {
+        window.restore()
+      }
+      window.focus()
+    }
+  }
 }
 
 interface WindowEvent {
