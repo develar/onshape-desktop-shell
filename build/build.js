@@ -20,11 +20,12 @@ else {
   outDir += "win"
 }
 outDir = path.normalize(outDir)
-console.log("Remove " + outDir)
+console.log("Removing " + outDir)
 require("rimraf").sync(outDir)
 
 const packager = require("electron-packager")
-const version = JSON.parse(fs.readFileSync(__dirname + "/../app/package.json")).version
+const metadata = JSON.parse(fs.readFileSync(__dirname + "/../app/package.json"));
+const version = metadata.version
 
 let arch = !isMacBuild && args.arch === "all" ? ["ia32", "x64"] : [args.arch]
 let currentArchIndex = 0
@@ -32,13 +33,13 @@ pack()
 
 function pack() {
   const currentArch = arch[currentArchIndex]
-  console.log("Install dependencies for arch " + currentArch)
+  console.log("Installing dependencies for arch " + currentArch)
   util.installDependencies(currentArch)
 
   packager({
     dir: "app",
     out: "dist" + (args.platform === "win32" ? "/win" : ""),
-    name: "Onshape",
+    name: metadata.name,
     platform: args.platform,
     arch: currentArch,
     version: util.packageJson.devDependencies["electron-prebuilt"].substring(1),
@@ -48,7 +49,15 @@ function pack() {
     "build-version": version,
     "app-bundle-id": "org.develar.onshape",
     "app-category-type": "public.app-category.graphics-design",
-    sign: args.sign
+    sign: args.sign,
+    "version-string": {
+      CompanyName: metadata.authors,
+      FileDescription: metadata.description,
+      FileVersion: version,
+      ProductVersion: version,
+      ProductName: metadata.name,
+      InternalName: metadata.name,
+    }
   }, function (error) {
     if (error != null) {
       //noinspection JSClosureCompilerSyntax
@@ -70,12 +79,8 @@ function pack() {
 function build(arch, doneHandler) {
   const appName = "Onshape"
   const appPath = args.platform === "darwin" ? `${outDir}/${appName}.app` : `${outDir}/${appName}-win32-${arch}`
-  require("electron-builder").init().build({
-    "appPath": appPath,
-    "platform": args.platform === "darwin" ? "osx" : "win",
-    "out": outDir,
-    "config": path.join(__dirname, "packager.json"),
-  }, function callback(error) {
+
+  let callback = function(error) {
     if (error != null) {
       //noinspection JSClosureCompilerSyntax
       throw new Error(error)
@@ -90,11 +95,33 @@ function build(arch, doneHandler) {
       }))
     }
     else {
-      fs.renameSync(path.join(outDir, "Onshape Setup.exe"), path.join(outDir, "Onshape-Setup-" + version + ((arch === "x64") ? "-x64" : "") + ".exe"))
+      fs.renameSync(path.join(outDir, arch, "OnshapeSetup.exe"), path.join(outDir, "OnshapeSetup-" + version + ((arch === "x64") ? "-x64" : "") + ".exe"))
     }
 
     if (doneHandler != null) {
       doneHandler()
     }
-  })
+  }
+
+  if (args.platform === "darwin") {
+    require("electron-builder").init().build({
+      "appPath": appPath,
+      "platform": args.platform === "darwin" ? "osx" : "win",
+      "out": outDir,
+      "config": path.join(__dirname, "packager.json"),
+    }, callback)
+  }
+  else {
+    require('electron-installer-squirrel-windows')({
+      name: metadata.name,
+      path: appPath,
+      product_name: metadata.name,
+      out: path.join(outDir, arch),
+      version: version,
+      description: metadata.description,
+      authors: metadata.authors,
+      setup_icon: path.join(__dirname, "icon.ico"),
+      //exe: "Onshape-Setup-" + version + ((arch === "x64") ? "-x64" : "") + ".exe"
+    }, callback)
+  }
 }
