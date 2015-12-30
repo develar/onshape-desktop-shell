@@ -1,3 +1,3 @@
 <component name="DependencyValidationManager">
-  <scope name="app source files" pattern="file[onshape-desktop-shell]:src//*" />
+  <scope name="app source files" pattern="file[onshape-desktop-shell]:src//*||file:tsconfig.json" />
 </component>
