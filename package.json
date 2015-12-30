@@ -7,7 +7,7 @@
     "clean": "rimraf dist",
     "clean:osx": "rimraf dist/Onshape-darwin-x64",
     "clean:win": "rimraf dist/win",
-    "compile": "rimraf app/out && tsc -p src",
+    "compile": "rimraf app/out && tsconfig -i 2 && tsc",
     "pack:osx": "npm run compile && build --platform=darwin",
     "pack:win": "npm run compile && build --platform=win32",
     "pack": "npm run pack:osx && npm run pack:win",
@@ -16,9 +16,10 @@
     "build": "npm run build:osx && npm run build:win"
   },
   "devDependencies": {
-    "electron-complete-builder": "^0.1.0",
+    "electron-complete-builder": "^0.1.4",
     "electron-prebuilt": "^0.36.2",
     "rimraf": "^2.5.0",
+    "tsconfig-glob": "^0.3.3",
     "typescript": "^1.8.0-dev.20151225"
   }
 }
