@@ -102,6 +102,9 @@ export default function setMenu() {
           click: openExternalHandler('https://www.onshape.com/cad-blog/')
         },
         {
+          type: 'separator'
+        },
+        {
           label: name + ' Status',
           click: openExternalHandler('http://status.onshape.com/')
         },

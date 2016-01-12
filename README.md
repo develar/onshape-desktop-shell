@@ -32,6 +32,3 @@ After the app is dragged to your Applications folder, you can run it normally â€
 
 # How to report issues
 You can ask questions, request improvements and file issues in the [tracker](https://github.com/develar/onshape-desktop-shell/issues).
-
-# ToDo
-* Keep opened windows state (restore last opened documents on launch).

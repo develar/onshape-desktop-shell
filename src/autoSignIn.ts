@@ -15,12 +15,12 @@ declare class Notification {
   let foundFormElementTimerId: number = -1
   let oldUrl: string = null
 
-  const ipcRenderer = require("electron").ipcRenderer;
+  const ipcRenderer = require("electron").ipcRenderer
   ipcRenderer.on("maybeUrlChanged", () => {
     maybeUrlChanged(true)
   })
 
-  ipcRenderer.on("notify", (event:any, title: string, message: string) => {
+  ipcRenderer.on("notify", (event: any, title: string, message: string) => {
     new Notification(title, {
       body: message
     })

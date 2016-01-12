@@ -1,10 +1,8 @@
-import { app, ipcMain, BrowserWindow as BrowserWindowElectron } from "electron"
+import { app, BrowserWindow as BrowserWindowElectron } from "electron"
 import BrowserWindow = GitHubElectron.BrowserWindow
 import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
 import { StateManager, WindowItem, DEFAULT_URL } from "./StateManager"
 import ApplicationUpdater from "./ApplicationUpdater"
-import setMenu from "./menu"
-import { log } from "./util"
 
 export default class WindowManager {
   private stateManager = new StateManager()

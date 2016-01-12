@@ -16,8 +16,8 @@
     "build": "npm run build:osx && npm run build:win"
   },
   "devDependencies": {
-    "electron-complete-builder": "^0.1.4",
-    "electron-prebuilt": "^0.36.2",
+    "electron-complete-builder": "^0.1.6",
+    "electron-prebuilt": "^0.36.3",
     "rimraf": "^2.5.0",
     "tsconfig-glob": "^0.3.3",
     "typescript": "^1.8.0-dev.20151225"

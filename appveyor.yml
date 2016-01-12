@@ -1,0 +1,37 @@
+version: 0.4.{build}
+
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - app\node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Install-Product node 5 x64
+  - npm prune
+  - npm install
+
+before_build:
+- ps: >-
+    $filepath = resolve-path ".\app\package.json"
+
+    $content = (get-content -raw $filepath ) -replace '"version": "([\d.]+)"', "`"version`": `"`$1.$env:APPVEYOR_BUILD_NUMBER`""
+
+    set-content $filepath $content
+
+build_script:
+  - node --version
+  - npm --version
+  - npm run build:win
+
+artifacts:
+  - path: dist\**\*.nupkg
+  - path: dist\**\*Setup*.exe
+
+test: off
