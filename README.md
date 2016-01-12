@@ -2,7 +2,7 @@
 
 [Download](https://onshape-download.develar.org/download) Onshape standalone app ([release notes](https://github.com/develar/onshape-desktop-shell/releases/latest)).
 
-“[Onshape](http://example.com/) is the first and only full-cloud 3D CAD system that lets everyone on a design team simultaneously work together using a web browser, phone or tablet. CAD Anywhere, Anytime, On Any Device.”
+“[Onshape](https://www.onshape.com/) is the first and only full-cloud 3D CAD system that lets everyone on a design team simultaneously work together using a web browser, phone or tablet. CAD Anywhere, Anytime, On Any Device.”
 
 So, there is no official desktop application since you can use Onshape on a desktop computer using web browser.
 
