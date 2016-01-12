@@ -1,3 +1,5 @@
+# Onshape Desktop Application [![Windows Build Status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true&passingText=windows)](https://ci.appveyor.com/project/develar/onshape-desktop-shell/build/artifacts)
+
 [Download](https://onshape-download.develar.org/download) Onshape standalone app ([release notes](https://github.com/develar/onshape-desktop-shell/releases/latest)).
 
 “[Onshape](http://example.com/) is the first and only full-cloud 3D CAD system that lets everyone on a design team simultaneously work together using a web browser, phone or tablet. CAD Anywhere, Anytime, On Any Device.”
