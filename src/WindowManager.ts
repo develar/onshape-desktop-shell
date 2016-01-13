@@ -1,8 +1,11 @@
-import { app, BrowserWindow as BrowserWindowElectron } from "electron"
+import { app, BrowserWindow as BrowserWindowElectron, ipcMain } from "electron"
 import BrowserWindow = GitHubElectron.BrowserWindow
 import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
 import { StateManager, WindowItem, DEFAULT_URL } from "./StateManager"
-import ApplicationUpdater from "./ApplicationUpdater"
+import AppUpdater from "./AppUpdater"
+import { WebContentsSignal, WindowEvent } from "./electronEventSignals"
+
+export const WINDOW_NAVIGATED = "windowNavigated"
 
 export default class WindowManager {
   private stateManager = new StateManager()
@@ -45,7 +48,7 @@ export default class WindowManager {
       const window = event.sender
       WindowManager.saveWindowState(window, descriptor)
       const url = window.webContents.getURL()
-      if (url != "about:blank") {
+      if (!isUrlInvalid(url)) {
         descriptor.url = url
       }
       this.stateManager.save()
@@ -56,18 +59,39 @@ export default class WindowManager {
       this.windows.splice(index, 1)
     })
 
-    let webContents = window.webContents
+    window.on("app-command", (e: any, command: string) => {
+      // navigate the window back when the user hits their mouse back button
+      if (command === "browser-backward") {
+        if (window.webContents.canGoBack()) {
+          window.webContents.goBack()
+        }
+      }
+      else if (command === "browser-forward") {
+        if (window.webContents.canGoForward()) {
+          window.webContents.goForward()
+        }
+      }
+    })
+
+    const webContents = window.webContents
     // cannot find way to listen url change in pure JS
     let frameFinishLoadedId: NodeJS.Timer = null
-    webContents.on("did-frame-finish-load", (event: any, isMainFrame: boolean) => {
-      if (frameFinishLoadedId != null) {
-        clearTimeout(frameFinishLoadedId)
-        frameFinishLoadedId = null
-      }
-      frameFinishLoadedId = setTimeout(() => {
-        webContents.send("maybeUrlChanged")
-      }, 300)
-    })
+    new WebContentsSignal(webContents)
+      .frameLoaded(() => {
+        if (frameFinishLoadedId != null) {
+          clearTimeout(frameFinishLoadedId)
+          frameFinishLoadedId = null
+        }
+        frameFinishLoadedId = setTimeout(() => {
+          webContents.send("maybeUrlChanged")
+        }, 300)
+      })
+      .navigated((event, url) => {
+        ipcMain.emit(WINDOW_NAVIGATED, event.sender, url)
+      })
+      .navigatedInPage((event, url) => {
+        ipcMain.emit(WINDOW_NAVIGATED, event.sender, url)
+      })
   }
 
   openWindows(): void {
@@ -78,7 +102,7 @@ export default class WindowManager {
     }
 
     for (const descriptor of descriptors) {
-      if (descriptor.url == "about:blank") {
+      if (isUrlInvalid(descriptor.url)) {
         // was error on load
         descriptor.url = DEFAULT_URL
       }
@@ -115,7 +139,7 @@ export default class WindowManager {
       this.windows.push(window)
     }
 
-    new ApplicationUpdater(this.windows[0])
+    new AppUpdater(this.windows[0])
   }
 
   focusFirstWindow(): void {
@@ -129,6 +153,6 @@ export default class WindowManager {
   }
 }
 
-interface WindowEvent {
-  sender: BrowserWindow
+function isUrlInvalid(url: string): boolean {
+  return url == null || url.length === 0 || url == "about:blank"
 }

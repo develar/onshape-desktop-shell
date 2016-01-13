@@ -1,5 +1,5 @@
 import { app, ipcMain } from "electron"
-import setMenu from "./menu"
+import setMenu from "./AppMenuManager"
 import { log } from "./util"
 import WindowManager from "./WindowManager"
 import handleStartupEvent from "./WinSquirrelStartupEventHandler"
@@ -23,7 +23,7 @@ if (!handleStartupEvent()) {
         log(arg)
       })
 
-      setMenu()
+      setMenu("https://cad.onshape.com/documents")
       windowManager = new WindowManager()
       windowManager.openWindows()
     })

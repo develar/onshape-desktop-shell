@@ -1,7 +1,11 @@
-import { app, Menu, shell } from "electron"
+import { app, Menu, shell, BrowserWindow, ipcMain } from "electron"
 import MenuItemOptions = GitHubElectron.MenuItemOptions
+import WebContents = GitHubElectron.WebContents
+import IBrowserWindow = GitHubElectron.BrowserWindow
+import { WINDOW_NAVIGATED } from "./WindowManager"
+import { AppSignal } from "./electronEventSignals"
 
-export default function setMenu() {
+export default function setMenu(homeUrl: string) {
   const windowsMenu: MenuItemOptions = {
     label: 'Window',
     role: 'window',
@@ -80,6 +84,38 @@ export default function setMenu() {
         },
       ]
     },
+    {
+      label: 'History',
+      submenu: [
+        {
+          label: 'Back',
+          accelerator: 'CmdOrCtrl+[',
+          enabled: false,
+          click: function () {
+            historyGo(true)
+          }
+        },
+        {
+          label: 'Forward',
+          enabled: false,
+          accelerator: 'CmdOrCtrl+]',
+          click: function () {
+            historyGo(false)
+          }
+        },
+        {
+          label: 'Home',
+          enabled: false,
+          accelerator: 'Shift+CmdOrCtrl+H',
+          click: function () {
+            const webContents = getFocusedWebContents()
+            if (webContents != null) {
+              webContents.loadURL(homeUrl)
+            }
+          }
+        },
+      ]
+    },
     windowsMenu,
     {
       label: 'Help',
@@ -150,7 +186,8 @@ export default function setMenu() {
       ]
     })
 
-    windowsMenu.submenu.push({
+    windowsMenu.submenu.push(
+      {
         type: 'separator'
       },
       {
@@ -159,9 +196,56 @@ export default function setMenu() {
       })
   }
 
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template))
+  const appMenu = Menu.buildFromTemplate(template)
+  const items: any[] = appMenu.items
+  for (const item of items) {
+    if (item.label === "History") {
+      const submenu = item.submenu
+      updateHistoryMenuItems(submenu.items, homeUrl)
+      break
+    }
+  }
+  Menu.setApplicationMenu(appMenu)
+}
+
+function updateHistoryMenuItems(items: MenuItemOptions[], homeUrl: string) {
+  function updateEnabled(webContents: WebContents) {
+    items[0].enabled = webContents.canGoBack()
+    items[1].enabled = webContents.canGoForward()
+  }
+
+  ipcMain.on(WINDOW_NAVIGATED, (webContents: WebContents, url: string) => {
+    updateEnabled(webContents)
+    items[2].enabled = url.replace(/(\?.*)|(#.*)/g, "") != homeUrl
+  })
+
+  new AppSignal()
+    .windowBlurred(() => {
+      items[0].enabled = false
+      items[1].enabled = false
+    })
+    .windowFocused((event, window) => {
+      updateEnabled(window.webContents)
+    })
 }
 
 function openExternalHandler(url: string) {
   return shell.openExternal.bind(shell, url)
+}
+
+function getFocusedWebContents(): WebContents {
+  const focusedWindow = BrowserWindow.getFocusedWindow()
+  return focusedWindow == null ? null : focusedWindow.webContents
+}
+
+function historyGo(back: boolean) {
+  const webContents = getFocusedWebContents()
+  if (webContents != null) {
+    if (back) {
+      webContents.goBack()
+    }
+    else {
+      webContents.goForward()
+    }
+  }
 }

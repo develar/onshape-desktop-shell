@@ -6,7 +6,7 @@ import { isDev, log } from "./util"
 
 const UPDATE_SERVER_HOST = "onshape-download.develar.org"
 
-export default class ApplicationUpdater {
+export default class AppUpdater {
   constructor(window: BrowserWindow) {
     if (isDev()) {
       return
