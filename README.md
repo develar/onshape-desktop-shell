@@ -1,4 +1,4 @@
-# Onshape Desktop Application [![Windows Build Status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true&passingText=windows)](https://ci.appveyor.com/project/develar/onshape-desktop-shell/build/artifacts)
+# Onshape Desktop Application [![Status of latest snapshot windows build](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true&passingText=windows "Status of latest snapshot windows build")](https://ci.appveyor.com/project/develar/onshape-desktop-shell/build/artifacts)
 
 [Download](https://onshape-download.develar.org/download) Onshape standalone app ([release notes](https://github.com/develar/onshape-desktop-shell/releases/latest)).
 
