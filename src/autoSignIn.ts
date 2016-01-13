@@ -11,13 +11,19 @@ declare class Notification {
   const keytar = require("keytar")
 
   let passwordToSave: Credentials = null
-  let maybeUrlChangedTimerId: any = null
   let foundFormElementTimerId: number = -1
   let oldUrl: string = null
 
   const ipcRenderer = require("electron").ipcRenderer
-  ipcRenderer.on("maybeUrlChanged", () => {
-    maybeUrlChanged(true)
+  ipcRenderer.on("maybeUrlChanged", (event: any, newUrl: string) => {
+    if (oldUrl != newUrl) {
+      try {
+        urlChanged(oldUrl, window.location)
+      }
+      finally {
+        oldUrl = newUrl
+      }
+    }
   })
 
   ipcRenderer.on("notify", (event: any, title: string, message: string) => {
@@ -118,29 +124,6 @@ declare class Notification {
     let location = window.location
     if (location.host == "cad.onshape.com" && location.pathname == "/signin") {
       fillOrWait()
-    }
-  }
-
-  function maybeUrlChanged(checkLater: boolean) {
-    if (maybeUrlChangedTimerId != null) {
-      clearTimeout(maybeUrlChangedTimerId)
-      maybeUrlChangedTimerId = null
-    }
-
-    let newLocation = window.location
-    let newUrl = newLocation.href
-    if (oldUrl != newUrl) {
-      try {
-        console.log("url changed:", oldUrl, newUrl)
-        urlChanged(oldUrl, newLocation)
-      }
-      finally {
-        oldUrl = newUrl
-      }
-    }
-    else if (checkLater) {
-      // let's reschedule
-      maybeUrlChangedTimerId = setTimeout(() => { maybeUrlChanged(false) }, 100)
     }
   }
 

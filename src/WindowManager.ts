@@ -75,22 +75,14 @@ export default class WindowManager {
 
     const webContents = window.webContents
     // cannot find way to listen url change in pure JS
-    let frameFinishLoadedId: NodeJS.Timer = null
     new WebContentsSignal(webContents)
-      .frameLoaded(() => {
-        if (frameFinishLoadedId != null) {
-          clearTimeout(frameFinishLoadedId)
-          frameFinishLoadedId = null
-        }
-        frameFinishLoadedId = setTimeout(() => {
-          webContents.send("maybeUrlChanged")
-        }, 300)
-      })
       .navigated((event, url) => {
         ipcMain.emit(WINDOW_NAVIGATED, event.sender, url)
+        webContents.send("maybeUrlChanged", url)
       })
       .navigatedInPage((event, url) => {
         ipcMain.emit(WINDOW_NAVIGATED, event.sender, url)
+        webContents.send("maybeUrlChanged", url)
       })
   }
 
