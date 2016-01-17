@@ -10,16 +10,14 @@
     "compile": "rimraf app/out && tsconfig -i 2 && tsc",
     "pack:osx": "npm run compile && build --platform=darwin",
     "pack:win": "npm run compile && build --platform=win32",
-    "pack": "npm run pack:osx && npm run pack:win",
-    "build:osx": "npm run compile && build --build --platform=darwin --sign='Vladimir Krivosheev'",
-    "build:win": "npm run compile && build --build --platform=win32",
-    "build": "npm run build:osx && npm run build:win"
+    "pack": "npm run compile && build",
+    "build": "npm run compile && build --dist"
   },
   "devDependencies": {
-    "electron-complete-builder": "^0.1.6",
-    "electron-prebuilt": "^0.36.3",
+    "electron-complete-builder": "^0.4.0",
+    "electron-prebuilt": "^0.36.4",
     "rimraf": "^2.5.0",
-    "tsconfig-glob": "^0.3.3",
-    "typescript": "^1.8.0-dev.20151225"
+    "tsconfig-glob": "^0.4.0",
+    "typescript": "^1.8.0-dev.20160117"
   }
 }
