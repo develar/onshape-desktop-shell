@@ -28,7 +28,7 @@ before_build:
 build_script:
   - node --version
   - npm --version
-  - npm run build:win
+  - npm run build
 
 artifacts:
   - path: dist\**\*.nupkg
