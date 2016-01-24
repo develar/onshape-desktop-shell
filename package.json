@@ -11,12 +11,12 @@
     "pack:osx": "npm run compile && build --platform=darwin",
     "pack:win": "npm run compile && build --platform=win32",
     "pack": "npm run compile && build",
-    "build": "npm run compile && build --dist"
+    "dist": "npm run compile && build --dist"
   },
   "devDependencies": {
-    "electron-complete-builder": "^0.4.0",
-    "electron-prebuilt": "^0.36.4",
-    "rimraf": "^2.5.0",
+    "electron-complete-builder": "^0.5.0-beta.1",
+    "electron-prebuilt": "^0.36.5",
+    "rimraf": "^2.5.1",
     "tsconfig-glob": "^0.4.0",
     "typescript": "^1.8.0-dev.20160117"
   }
