@@ -30,8 +30,8 @@
     }
   },
   "devDependencies": {
-    "electron-complete-builder": "^0.5.0-beta.4",
-    "electron-prebuilt": "^0.36.5",
+    "electron-complete-builder": "^0.5.0-beta.7",
+    "electron-prebuilt": "^0.36.7",
     "rimraf": "^2.5.1",
     "tsconfig-glob": "^0.4.0",
     "typescript": "^1.8.0-dev.20160117"
