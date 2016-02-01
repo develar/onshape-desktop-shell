@@ -21,14 +21,6 @@ install:
   - npm prune
   - npm install
 
-before_build:
-- ps: >-
-    $filepath = resolve-path ".\app\package.json"
-
-    $content = (get-content -raw $filepath ) -replace '"version": "([\d.]+)"', "`"version`": `"`$1.$env:APPVEYOR_BUILD_NUMBER`""
-
-    set-content $filepath $content
-
 build_script:
   - node --version
   - npm --version

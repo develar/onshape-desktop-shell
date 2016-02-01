@@ -13,7 +13,6 @@
   },
   "build": {
     "app-bundle-id": "org.develar.onshape",
-    "app-category-type": "public.app-category.graphics-design",
-    "iconUrl": "https://raw.githubusercontent.com/develar/onshape-desktop-shell/master/build/icon.ico"
+    "app-category-type": "public.app-category.graphics-design"
   }
 }
