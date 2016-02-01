@@ -19,16 +19,13 @@ init:
 install:
   - ps: Install-Product node 5 x64
   - git reset --hard HEAD
+  - npm install npm -g
   - npm prune
-  - npm install
+  - npm update
 
 build_script:
   - node --version
   - npm --version
   - npm run dist
-
-artifacts:
-  - path: dist\**\*.nupkg
-  - path: dist\**\*Setup*.exe
 
 test: off
