@@ -7,7 +7,7 @@
   "main": "./out/index.js",
   "dependencies": {
     "configstore": "^1.4.0",
-    "electron-debug": "^0.5.1",
+    "electron-debug": "^0.5.2",
     "keytar": "^3.0.0",
     "nslog": "^3.0.0"
   },
