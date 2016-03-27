@@ -10,9 +10,12 @@
     "compile": "rimraf app/out && tsconfig -i 2 && tsc",
     "pack": "npm run compile && build",
     "dist": "npm run compile && build",
-    "release": "npm run compile && build"
+    "release": "npm run compile && build",
+    "dist:win64": "./node_modules/.bin/build --platform win32 --arch x64"
   },
   "build": {
+    "app-bundle-id": "org.develar.onshape",
+    "app-category-type": "public.app-category.graphics-design",
     "osx": {
       "contents": [
         {
@@ -30,10 +33,10 @@
     }
   },
   "devDependencies": {
-    "electron-builder": "^2.8.3",
-    "electron-prebuilt": "^0.36.9",
+    "electron-builder": "next",
+    "electron-prebuilt": "^0.37.2",
     "rimraf": "^2.5.2",
     "tsconfig-glob": "^0.4.1",
-    "typescript": "^1.8.2"
+    "typescript": "^1.8.7"
   }
 }
