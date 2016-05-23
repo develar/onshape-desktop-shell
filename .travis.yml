@@ -7,10 +7,10 @@ language: c
 
 matrix:
   include:
+    - os: osx
     - os: linux
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
-    - os: osx
 
 cache:
   directories:
@@ -38,8 +38,9 @@ before_install:
 install:
 - nvm install 6
 - npm install npm -g
-- npm install electron-builder@next # force install next version to test electron-builder
+#- npm install electron-builder@next # force install next version to test electron-builder
 - npm install
+- npm install https://github.com/develar/__test-app-releases/releases/download/v1.0.4/electron-builder-0.0.0-semantic-release.tgz # force install next version to test electron-builder
 - npm prune
 
 script:
