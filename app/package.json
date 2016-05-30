@@ -1,6 +1,6 @@
 {
   "name": "Onshape",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell)",
   "author": "Vladimir Krivosheev <develar@gmail.com>",
