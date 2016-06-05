@@ -29,6 +29,9 @@
           "type": "file"
         }
       ]
+    },
+    "win": {
+      "remoteReleases": "https://github.com/develar/onshape-desktop-shell"
     }
   },
   "devDependencies": {
