@@ -37,7 +37,7 @@
   "devDependencies": {
     "@types/update-notifier": "^1000.0.21-alpha",
     "electron-builder": "next",
-    "electron-prebuilt": "1.2.4",
+    "electron-prebuilt": "1.2.5",
     "rimraf": "^2.5.2",
     "tsconfig-glob": "^0.4.3",
     "typescript": "^1.8.10"
