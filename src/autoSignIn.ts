@@ -92,10 +92,10 @@ declare class Notification {
     }
 
     var superOnSubmit: any = formElement.onsubmit
-    formElement.onsubmit = () => {
+    formElement.onsubmit = event => {
       passwordToSave = null
       if (superOnSubmit != null) {
-        superOnSubmit()
+        superOnSubmit(event)
       }
 
       let login = getInputElement("email").value
