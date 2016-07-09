@@ -3,6 +3,8 @@
     <envs>
       <env name="LOG_EVENTS" value="true" />
     </envs>
-    <method />
+    <method>
+      <option name="TypeScript.Before.Run" enabled="true" FAIL_ON_ERROR="true" />
+    </method>
   </configuration>
 </component>

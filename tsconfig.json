@@ -22,12 +22,12 @@
     "typings/node/node.d.ts",
     "src/AppMenuManager.ts",
     "src/AppUpdater.ts",
+    "src/StateManager.ts",
+    "src/WinSquirrelStartupEventHandler.ts",
+    "src/WindowManager.ts",
     "src/autoSignIn.ts",
     "src/electronEventSignals.ts",
     "src/index.ts",
-    "src/StateManager.ts",
-    "src/util.ts",
-    "src/WindowManager.ts",
-    "src/WinSquirrelStartupEventHandler.ts"
+    "src/util.ts"
   ]
 }

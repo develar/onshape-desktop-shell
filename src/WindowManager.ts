@@ -1,9 +1,10 @@
-import { app, BrowserWindow as BrowserWindowElectron, ipcMain } from "electron"
+import {app, BrowserWindow as BrowserWindowElectron, ipcMain} from "electron";
+import {StateManager, WindowItem, DEFAULT_URL} from "./StateManager";
+import * as path from "path";
+import AppUpdater from "./AppUpdater";
+import {WebContentsSignal, WindowEvent} from "./electronEventSignals";
 import BrowserWindow = GitHubElectron.BrowserWindow
 import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
-import { StateManager, WindowItem, DEFAULT_URL } from "./StateManager"
-import AppUpdater from "./AppUpdater"
-import { WebContentsSignal, WindowEvent } from "./electronEventSignals"
 
 export const WINDOW_NAVIGATED = "windowNavigated"
 
@@ -102,8 +103,8 @@ export default class WindowManager {
       const options: BrowserWindowOptions = {
         // to avoid visible maximizing
         show: false,
-        preload: __dirname + "/autoSignIn.js",
         webPreferences: {
+          preload: path.join(__dirname, "autoSignIn.js"),
           // fix jquery issue (https://github.com/atom/electron/issues/254), and in any case node integration is not required
           nodeIntegration: false,
         }
