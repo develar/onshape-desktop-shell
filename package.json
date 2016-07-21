@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "electron-builder": "next",
-    "electron-prebuilt": "1.2.6",
+    "electron-prebuilt": "1.2.8",
     "rimraf": "^2.5.3",
     "tsconfig-glob": "^0.4.3",
     "typescript": "^1.8.10"
