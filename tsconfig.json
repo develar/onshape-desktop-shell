@@ -11,23 +11,8 @@
     "inlineSources": true,
     "sourceMap": true
   },
-  "filesGlob": [
+  "include": [
     "src/*.ts",
     "typings/**/*.d.ts"
-  ],
-  "files": [
-    "typings/configstore.d.ts",
-    "typings/github-electron/github-electron.d.ts",
-    "typings/keytar/keytar.d.ts",
-    "typings/node/node.d.ts",
-    "src/AppMenuManager.ts",
-    "src/AppUpdater.ts",
-    "src/autoSignIn.ts",
-    "src/electronEventSignals.ts",
-    "src/index.ts",
-    "src/StateManager.ts",
-    "src/util.ts",
-    "src/WindowManager.ts",
-    "src/WinSquirrelStartupEventHandler.ts"
   ]
 }
