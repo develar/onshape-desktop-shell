@@ -30,7 +30,7 @@ Nothing special. Just [download](https://onshape-download.develar.org/download/o
 After the app is dragged to your Applications folder, you can run it normally — from the Finder, Launchpad, Spotlight, dock, or anything else. The first time you open a downloaded application, you’ll see a warning. Agree to open the file and you won’t see the warning again. See [short](http://apple.stackexchange.com/questions/1171/how-do-i-install-an-application-from-a-dmg-disk-image) or [long](http://www.howtogeek.com/177619/how-to-install-applications-on-a-mac-everything-you-need-to-know/) (“DMG Files" section”) guide.
 
 ## Windows
-[Download](https://onshape-download.develar.org/download), open the folder that contains the downloaded file, double click to open it, application will be automatically installed and launched. Desktop shortcut will be also created. Please note — windows version **is not yet signed**. So, browser will not allow to click it directly. Signed version will be published soon.
+[Download](https://onshape-download.develar.org/download), open the folder that contains the downloaded file, double click to open it, application will be automatically installed and launched. Desktop shortcut will be also created.
 
 # How to report issues
 You can ask questions, request improvements and file issues in the [tracker](https://github.com/develar/onshape-desktop-shell/issues).
