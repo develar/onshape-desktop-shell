@@ -9,7 +9,6 @@
     "release": "npm run compile && build"
   },
   "build": {
-    "asar": false,
     "appId": "org.develar.onshape",
     "category": "public.app-category.graphics-design",
     "dmg": {
@@ -38,8 +37,8 @@
   },
   "devDependencies": {
     "electron-builder": "next",
-    "electron": "1.4.0",
+    "electron": "1.4.1",
     "rimraf": "^2.5.4",
-    "typescript": "^1.8.10"
+    "typescript": "^2.0.3"
   }
 }
