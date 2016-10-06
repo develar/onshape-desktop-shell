@@ -14,13 +14,13 @@
     "dmg": {
       "contents": [
         {
-          "x": 410,
+          "x": 240,
           "y": 150,
           "type": "link",
           "path": "/Applications"
         },
         {
-          "x": 130,
+          "x": 110,
           "y": 150,
           "type": "file"
         }
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "electron-builder": "next",
-    "electron": "1.4.1",
+    "electron": "1.4.2",
     "rimraf": "^2.5.4",
     "typescript": "^2.0.3"
   }
