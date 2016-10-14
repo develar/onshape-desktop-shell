@@ -27,8 +27,7 @@
     },
     "win": {
       "target": "nsis",
-      "remoteReleases": "https://github.com/develar/onshape-desktop-shell",
-      "publish": ["bintray", "github"]
+      "remoteReleases": "https://github.com/develar/onshape-desktop-shell"
     },
     "linux": {
       "publish": null,
@@ -37,8 +36,8 @@
   },
   "devDependencies": {
     "electron-builder": "next",
-    "electron": "1.4.3",
+    "electron": "1.4.5",
     "rimraf": "^2.5.4",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.7"
   }
 }
