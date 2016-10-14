@@ -8,6 +8,7 @@
   "main": "./out/index.js",
   "dependencies": {
     "configstore": "^2.1.0",
+    "electron-auto-updater": "^0.0.1",
     "electron-debug": "^1.0.1",
     "keytar": "^3.0.2",
     "nslog": "^3.0.0"

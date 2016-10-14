@@ -26,8 +26,9 @@
       ]
     },
     "win": {
+      "target": "nsis",
       "remoteReleases": "https://github.com/develar/onshape-desktop-shell",
-      "publish": ["github", "bintray"]
+      "publish": ["bintray", "github"]
     },
     "linux": {
       "publish": null,

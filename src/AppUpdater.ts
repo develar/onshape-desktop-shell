@@ -1,8 +1,9 @@
-import { app, autoUpdater, BrowserWindow as BrowserWindowElectron } from "electron"
-import * as os from "os"
+import {app, BrowserWindow as BrowserWindowElectron} from "electron";
+import * as os from "os";
+import {isDev, log} from "./util";
+import {autoUpdater} from "electron-auto-updater";
 import BrowserWindow = GitHubElectron.BrowserWindow
 import WebContents = GitHubElectron.WebContents
-import { isDev, log } from "./util"
 
 const UPDATE_SERVER_HOST = "onshape-download.develar.org"
 
@@ -12,7 +13,8 @@ export default class AppUpdater {
       return
     }
 
-    if (os.platform() !== "darwin") {
+    const platform = os.platform()
+    if (platform === "linux") {
       return
     }
 
@@ -32,7 +34,10 @@ export default class AppUpdater {
     autoUpdater.addListener("update-not-available", () => {
       log("update-not-available")
     })
-    autoUpdater.setFeedURL(`https://${UPDATE_SERVER_HOST}/update/${os.platform()}_${os.arch()}/${version}`)
+
+    if (platform === "darwin") {
+      autoUpdater.setFeedURL(`https://${UPDATE_SERVER_HOST}/update/${platform}_${os.arch()}/${version}`)
+    }
 
     window.webContents.once("did-frame-finish-load", (event: any) => {
       autoUpdater.checkForUpdates()
