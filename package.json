@@ -29,10 +29,9 @@
       "target": "nsis"
     },
     "linux": {
-      "publish": null,
       "target": [
-        "deb",
-        "AppImage"
+        "AppImage",
+        "deb"
       ]
     }
   },
