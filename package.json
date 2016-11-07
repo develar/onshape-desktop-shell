@@ -26,18 +26,20 @@
       ]
     },
     "win": {
-      "remoteReleases": "https://github.com/develar/onshape-desktop-shell",
-      "publish": ["github", "bintray"]
+      "target": "nsis"
     },
     "linux": {
       "publish": null,
-      "target": ["deb", "AppImage"]
+      "target": [
+        "deb",
+        "AppImage"
+      ]
     }
   },
   "devDependencies": {
+    "electron": "1.4.5",
     "electron-builder": "next",
-    "electron": "1.4.3",
     "rimraf": "^2.5.4",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.7"
   }
 }

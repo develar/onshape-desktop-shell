@@ -12,6 +12,7 @@
     "sourceMap": true
   },
   "include": [
+    "app/node_modules/electron-auto-updater/out/*.d.ts",
     "src/*.ts",
     "typings/**/*.d.ts"
   ]
