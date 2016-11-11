@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "electron": "1.4.6",
-    "electron-builder": "file:/Users/develar/Documents/electron-builder",
+    "electron-builder": "next",
     "rimraf": "^2.5.4",
     "typescript": "^2.0.8"
   }
