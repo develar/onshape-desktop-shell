@@ -4,16 +4,19 @@
     "target": "es6",
     "noImplicitAny": true,
     "removeComments": true,
-    "outDir": "app/out",
+    "outDir": "out",
     "newLine": "LF",
     "noResolve": true,
     "noEmitOnError": true,
     "inlineSources": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "noUnusedLocals": true
   },
   "include": [
-    "app/node_modules/electron-auto-updater/out/*.d.ts",
+    "node_modules/electron-auto-updater/out/*.d.ts",
     "src/*.ts",
     "typings/**/*.d.ts"
+  ],
+  "exclude": [
   ]
 }

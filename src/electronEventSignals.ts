@@ -1,8 +1,7 @@
 import WebContents = GitHubElectron.WebContents
 import BrowserWindow = GitHubElectron.BrowserWindow
 import EventEmitter = NodeJS.EventEmitter;
-import App = GitHubElectron.App;
-import { app } from "electron"
+import {app} from "electron";
 
 export interface WindowEvent {
   sender: BrowserWindow

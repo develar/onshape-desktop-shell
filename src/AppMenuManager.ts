@@ -1,9 +1,8 @@
-import { app, Menu, shell, BrowserWindow, ipcMain } from "electron"
+import {app, Menu, shell, BrowserWindow, ipcMain} from "electron";
+import {WINDOW_NAVIGATED} from "./WindowManager";
+import {AppSignal} from "./electronEventSignals";
 import MenuItemOptions = GitHubElectron.MenuItemOptions
 import WebContents = GitHubElectron.WebContents
-import IBrowserWindow = GitHubElectron.BrowserWindow
-import { WINDOW_NAVIGATED } from "./WindowManager"
-import { AppSignal } from "./electronEventSignals"
 
 export default function setMenu(homeUrl: string) {
   const windowsMenu: MenuItemOptions = {
