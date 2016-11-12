@@ -20,7 +20,6 @@
       "out",
       "node_modules"
     ],
-    "asar": false,
     "dmg": {
       "contents": [
         {
