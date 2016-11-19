@@ -34,9 +34,6 @@
         }
       ]
     },
-    "win": {
-      "target": "nsis"
-    },
     "linux": {
       "target": [
         "AppImage",
@@ -46,15 +43,15 @@
   },
   "dependencies": {
     "configstore": "^2.1.0",
-    "electron-auto-updater": "^0.5.0",
+    "electron-auto-updater": "^0.5.3",
     "electron-debug": "^1.1.0",
     "keytar": "^3.0.2",
     "nslog": "^3.0.0"
   },
   "devDependencies": {
-    "electron": "1.4.6",
+    "electron": "1.4.7",
     "electron-builder": "next",
     "rimraf": "^2.5.4",
-    "typescript": "^2.0.8"
+    "typescript": "^2.0.10"
   }
 }
