@@ -49,7 +49,7 @@
     "nslog": "^3.0.0"
   },
   "devDependencies": {
-    "electron": "1.4.12",
+    "electron": "1.4.13",
     "electron-builder": "next",
     "rimraf": "^2.5.4",
     "typescript": "^2.0.10"
