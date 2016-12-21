@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "configstore": "^2.1.0",
-    "electron-auto-updater": "^0.7.1",
+    "electron-auto-updater": "^0.8.0",
     "electron-debug": "^1.1.0",
     "keytar": "^3.0.2",
     "nslog": "^3.0.0"
