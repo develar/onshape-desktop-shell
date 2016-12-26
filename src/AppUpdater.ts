@@ -2,7 +2,7 @@ import {app, BrowserWindow as BrowserWindowElectron} from "electron";
 import * as os from "os";
 import {isDev, log} from "./util";
 import {autoUpdater} from "electron-auto-updater";
-import BrowserWindow = GitHubElectron.BrowserWindow
+import BrowserWindow = Electron.BrowserWindow
 
 const UPDATE_SERVER_HOST = "onshape-download.develar.org"
 

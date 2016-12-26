@@ -3,8 +3,8 @@ import {StateManager, WindowItem, DEFAULT_URL} from "./StateManager";
 import * as path from "path";
 import AppUpdater from "./AppUpdater";
 import {WebContentsSignal, WindowEvent} from "./electronEventSignals";
-import BrowserWindow = GitHubElectron.BrowserWindow
-import BrowserWindowOptions = GitHubElectron.BrowserWindowOptions
+import BrowserWindow = Electron.BrowserWindow
+import BrowserWindowOptions = Electron.BrowserWindowOptions
 
 export const WINDOW_NAVIGATED = "windowNavigated"
 

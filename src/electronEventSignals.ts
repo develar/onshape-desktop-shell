@@ -1,5 +1,5 @@
-import WebContents = GitHubElectron.WebContents
-import BrowserWindow = GitHubElectron.BrowserWindow
+import WebContents = Electron.WebContents
+import BrowserWindow = Electron.BrowserWindow
 import EventEmitter = NodeJS.EventEmitter;
 import {app} from "electron";
 

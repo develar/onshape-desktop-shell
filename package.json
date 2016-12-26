@@ -43,15 +43,17 @@
   },
   "dependencies": {
     "configstore": "^2.1.0",
-    "electron-auto-updater": "^0.7.1",
+    "electron-auto-updater": "^0.8.3",
     "electron-debug": "^1.1.0",
     "keytar": "^3.0.2",
-    "nslog": "^3.0.0"
+    "nslog": "^3.0.0",
+    "osascript": "^1.2.0"
   },
   "devDependencies": {
-    "electron": "1.4.12",
+    "@types/electron": "^1.4.30",
+    "electron": "1.4.13",
     "electron-builder": "next",
     "rimraf": "^2.5.4",
-    "typescript": "^2.0.10"
+    "typescript": "^2.1.4"
   }
 }
