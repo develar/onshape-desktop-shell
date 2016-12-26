@@ -5,9 +5,9 @@
       <value>
         <option name="AUTODETECT_INDENTS" value="false" />
         <option name="LINE_SEPARATOR" value="&#10;" />
-        <TypeScriptCodeStyleSettings>
-          <option name="SPACE_AFTER_TYPE_COLON" value="true" />
-        </TypeScriptCodeStyleSettings>
+        <JSCodeStyleSettings>
+          <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
+        </JSCodeStyleSettings>
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>

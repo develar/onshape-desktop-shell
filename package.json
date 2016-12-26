@@ -45,6 +45,7 @@
     "configstore": "^2.1.0",
     "electron-auto-updater": "^0.8.3",
     "electron-debug": "^1.1.0",
+    "electron-is-dev": "^0.1.2",
     "keytar": "^3.0.2",
     "nslog": "^3.0.0",
     "osascript": "^1.2.0"

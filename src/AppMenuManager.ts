@@ -3,7 +3,6 @@ import {WINDOW_NAVIGATED} from "./WindowManager";
 import {AppSignal} from "./electronEventSignals";
 import MenuItemOptions = Electron.MenuItemOptions
 import WebContents = Electron.WebContents
-import IpcMainEvent = Electron.IpcMainEvent;
 
 export default function setMenu(homeUrl: string) {
   const windowsMenu: MenuItemOptions = {
@@ -214,10 +213,10 @@ function updateHistoryMenuItems(items: MenuItemOptions[], homeUrl: string) {
     items[1].enabled = webContents.canGoForward()
   }
 
-  ipcMain.on(WINDOW_NAVIGATED, (event: IpcMainEvent, url: string) => {
-    updateEnabled(event.sender)
-    items[2].enabled = url.replace(/(\?.*)|(#.*)/g, "") != homeUrl
-  })
+  ipcMain.on(WINDOW_NAVIGATED, <any>((webContents: WebContents, url: string) => {
+      updateEnabled(webContents)
+      items[2].enabled = url.replace(/(\?.*)|(#.*)/g, "") != homeUrl
+    }))
 
   new AppSignal()
     .windowBlurred(() => {

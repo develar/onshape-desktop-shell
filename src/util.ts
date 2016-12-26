@@ -1,7 +1,7 @@
-import {app} from "electron";
+const _isDev = require('electron-is-dev')
 
 export function isDev() {
-  return app.getPath("exe").includes("/node_modules/electron-prebuilt/")
+  return _isDev
 }
 
 let _log: (...args: any[]) => void
