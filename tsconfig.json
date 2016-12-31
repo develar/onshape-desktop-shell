@@ -15,6 +15,7 @@
   "include": [
     "node_modules/@types/*/*.d.ts",
     "node_modules/electron-auto-updater/out/*.d.ts",
+    "node_modules/electron-builder-http/out/*.d.ts",
     "src/*.ts",
     "typings/**/*.d.ts"
   ],

@@ -29,8 +29,8 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "6.0.53"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.53.tgz#8c300ca8ba51f80f98f3525b932ff47c6efd6be1"
+  version "6.0.54"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.54.tgz#65859962ba988052cbdd5c48881395acfdd46931"
 
 ansi-align@^1.1.0:
   version "1.1.0"
@@ -155,7 +155,7 @@ bluebird-lst-c@^1.0.5:
   dependencies:
     bluebird "^3.4.6"
 
-bluebird@^3.4.6:
+bluebird@^3.4.6, bluebird@^3.4.7:
   version "3.4.7"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.4.7.tgz#f72d760be09b7f76d08ed8fae98b289a8d05fab3"
 
@@ -189,10 +189,6 @@ brace-expansion@^1.0.0:
 buffer-crc32@^0.2.1:
   version "0.2.13"
   resolved "https://registry.yarnpkg.com/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
-
-buffer-shims@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
 builtin-modules@^1.0.0:
   version "1.1.1"
@@ -359,7 +355,7 @@ debug@0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-0.7.4.tgz#06e1ea8082c2cb14e39806e22e2f6f757f92af39"
 
-debug@2.5.2, debug@^2.1.3, debug@^2.2.0, debug@^2.3.2, debug@^2.5.1:
+debug@2.5.2, debug@^2.1.3, debug@^2.2.0, debug@^2.3.2, debug@^2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.5.2.tgz#50c295a53dbf1657146e0c1b21307275e90d49cb"
   dependencies:
@@ -411,19 +407,19 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
 
 electron-auto-updater@^0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/electron-auto-updater/-/electron-auto-updater-0.8.3.tgz#8d9cd1a826e5d5334d7f234ac3cf2df7b0fe3b69"
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/electron-auto-updater/-/electron-auto-updater-0.8.5.tgz#f970317d30e3a3af9e9e9af583f9c21faf412211"
   dependencies:
     bluebird-lst-c "^1.0.5"
-    debug "^2.5.1"
+    debug "^2.5.2"
     fs-extra-p "^3.0.3"
     js-yaml "^3.7.0"
     semver "^5.3.0"
-    source-map-support "^0.4.6"
+    source-map-support "^0.4.8"
 
 electron-builder@next:
-  version "10.13.0"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-10.13.0.tgz#6c17f95beb4581bd268b200d2c47ec432c33fef4"
+  version "10.15.0"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-10.15.0.tgz#9d912ef8618d5dd091b595ee266fd458a0f66f31"
   dependencies:
     "7zip-bin" "^2.0.4"
     ansi-escapes "^1.4.0"
@@ -436,7 +432,7 @@ electron-builder@next:
     cuint "^0.2.2"
     debug "2.5.2"
     electron-download-tf "3.1.0"
-    electron-macos-sign "^1.3.4"
+    electron-macos-sign "~1.4.0"
     fs-extra-p "^3.0.3"
     hosted-git-info "^2.1.5"
     ini "^1.3.4"
@@ -485,8 +481,8 @@ electron-download-tf@3.1.0:
     sumchecker "^1.2.0"
 
 electron-download@^3.0.1:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/electron-download/-/electron-download-3.0.2.tgz#d2e4552ae88f9a37a746e02da987caa60524be7c"
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/electron-download/-/electron-download-3.1.0.tgz#6ee29f730b23d16fb790f5baa5b646c475872167"
   dependencies:
     debug "^2.2.0"
     fs-extra "^0.30.0"
@@ -498,7 +494,7 @@ electron-download@^3.0.1:
     semver "^5.3.0"
     sumchecker "^1.2.0"
 
-electron-is-dev@^0.1.0:
+electron-is-dev@^0.1.0, electron-is-dev@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-0.1.2.tgz#8a1043e32b3a1da1c3f553dce28ce764246167e3"
 
@@ -506,13 +502,13 @@ electron-localshortcut@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/electron-localshortcut/-/electron-localshortcut-0.6.1.tgz#c4e268c38a6e42f40de5618fc906d1ed608f11aa"
 
-electron-macos-sign@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/electron-macos-sign/-/electron-macos-sign-1.3.4.tgz#641e011f974b26879f05ac505dde94b86481376a"
+electron-macos-sign@~1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/electron-macos-sign/-/electron-macos-sign-1.4.0.tgz#9065ffcfc77db9cc41a521b97081d5193e371c84"
   dependencies:
-    bluebird "^3.4.6"
+    bluebird "^3.4.7"
     compare-version "^0.1.2"
-    debug "^2.3.2"
+    debug "^2.5.2"
     isbinaryfile "^3.0.1"
     minimist "^1.2.0"
     plist "^2.0.1"
@@ -1058,9 +1054,13 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-nan@2.3.2, nan@^2.0.0:
+nan@2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.3.2.tgz#4d4ecf17e1da4e989efb4f273d8d00201cad087e"
+
+nan@^2.0.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
 
 node-emoji@^1.4.3:
   version "1.4.3"
@@ -1335,11 +1335,10 @@ read-pkg@^1.0.0:
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
 
-readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.5:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.2.tgz#a9e6fec3c7dda85f8bb1b3ba7028604556fc825e"
+readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@~2.0.0:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
-    buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
@@ -1355,17 +1354,6 @@ readable-stream@~1.1.9:
     inherits "~2.0.1"
     isarray "0.0.1"
     string_decoder "~0.10.x"
-
-readable-stream@~2.0.0:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
-  dependencies:
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "~1.0.0"
-    process-nextick-args "~1.0.6"
-    string_decoder "~0.10.x"
-    util-deprecate "~1.0.1"
 
 readdir-scoped-modules@^1.0.0:
   version "1.0.2"
@@ -1487,7 +1475,7 @@ sntp@1.x.x:
   dependencies:
     hoek "2.x.x"
 
-source-map-support@^0.4.6, source-map-support@^0.4.8:
+source-map-support@^0.4.8:
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.8.tgz#4871918d8a3af07289182e974e32844327b2e98b"
   dependencies:
@@ -1612,8 +1600,8 @@ through2@~0.2.3:
     xtend "~2.1.1"
 
 timed-out@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-3.1.0.tgz#43b98b14bb712c9161c28f4dc1f3068d67a04ec2"
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-3.1.1.tgz#2eaaa1021888e4ce3b6ce3511fa7a8556114752b"
 
 tough-cookie@~2.3.0:
   version "2.3.2"
