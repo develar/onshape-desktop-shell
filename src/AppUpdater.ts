@@ -16,12 +16,13 @@ export default class AppUpdater {
     }
 
     if (platform === "darwin") {
-      autoUpdater.logger = require("electron-log")
+      const log = require("electron-log")
+      log.transports.file.level = "info"
+      autoUpdater.logger = log
     }
 
     autoUpdater.signals.updateDownloaded(it => {
       notify("A new update is ready to install", `Version ${it.version} is downloaded and will be automatically installed on Quit`)
-      autoUpdater.quitAndInstall()
     })
     autoUpdater.checkForUpdates()
   }
