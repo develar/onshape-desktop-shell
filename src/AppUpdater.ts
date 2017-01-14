@@ -1,10 +1,8 @@
-import {app, BrowserWindow as BrowserWindowElectron} from "electron";
+import {BrowserWindow as BrowserWindowElectron} from "electron";
 import * as os from "os";
-import {isDev, log} from "./util";
+import {isDev} from "./util";
 import {autoUpdater} from "electron-auto-updater";
 import BrowserWindow = Electron.BrowserWindow
-
-const UPDATE_SERVER_HOST = "onshape-download.develar.org"
 
 export default class AppUpdater {
   constructor(window: BrowserWindow) {
@@ -17,34 +15,15 @@ export default class AppUpdater {
       return
     }
 
-    const version = app.getVersion()
-    autoUpdater.addListener("update-available", (event: any) => {
-      log("A new update is available")
-    })
-    autoUpdater.addListener("update-downloaded", (event: any, releaseNotes: string, releaseName: string, releaseDate: string, updateURL: string) => {
-      notify("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`)
-      log("quitAndInstall")
-      autoUpdater.quitAndInstall()
-      return true
-
-    })
-    autoUpdater.addListener("error", (error: any) => {
-      log(error)
-    })
-    autoUpdater.addListener("checking-for-update", (event: any) => {
-      log("checking-for-update")
-    })
-    autoUpdater.addListener("update-not-available", () => {
-      log("update-not-available")
-    })
-
     if (platform === "darwin") {
-      autoUpdater.setFeedURL(`https://${UPDATE_SERVER_HOST}/update/${platform}_${os.arch()}/${version}`)
+      autoUpdater.logger = require("electron-log")
     }
 
-    window.webContents.once("did-frame-finish-load", (event: any) => {
-      autoUpdater.checkForUpdates()
+    autoUpdater.signals.updateDownloaded(it => {
+      notify("A new update is ready to install", `Version ${it.version} is downloaded and will be automatically installed on Quit`)
+      autoUpdater.quitAndInstall()
     })
+    autoUpdater.checkForUpdates()
   }
 }
 
