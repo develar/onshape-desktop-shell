@@ -22,6 +22,10 @@
     "7zip-bin-mac" "^1.0.1"
     "7zip-bin-win" "^2.0.2"
 
+"@types/debug@0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
+
 "@types/electron@^1.4.31":
   version "1.4.31"
   resolved "https://registry.yarnpkg.com/@types/electron/-/electron-1.4.31.tgz#6ef658e97152a4d3c9cda44f56bd3f917149bb33"
@@ -39,8 +43,8 @@ ansi-align@^1.1.0:
     string-width "^1.0.1"
 
 ansi-regex@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.0.0.tgz#c5061b6e0ef8a81775e50f5d66151bf6bf371107"
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
 
 ansi-styles@^2.2.1:
   version "2.2.1"
@@ -284,7 +288,7 @@ debug@0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-0.7.4.tgz#06e1ea8082c2cb14e39806e22e2f6f757f92af39"
 
-debug@2.6.0, debug@^2.1.3, debug@^2.2.0, debug@^2.3.2, debug@^2.5.2, debug@^2.6.0:
+debug@2.6.0, debug@^2.1.3, debug@^2.2.0, debug@^2.3.2, debug@^2.5.2:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
   dependencies:
@@ -308,10 +312,6 @@ dot-prop@^3.0.0:
   dependencies:
     is-obj "^1.0.0"
 
-duplex-child-process@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/duplex-child-process/-/duplex-child-process-0.0.5.tgz#1c2462b8ec8fd01e432836ebbd592bcdffbb65e9"
-
 duplexer2@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -325,12 +325,11 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
 
 electron-auto-updater@next:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/electron-auto-updater/-/electron-auto-updater-0.10.1.tgz#5f68e3348393f7a8cac8d4ef5caf50e788ac58e3"
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/electron-auto-updater/-/electron-auto-updater-1.0.0.tgz#fcaac7cb48afa9c3ea1d48b0ff7f0eee1a51418e"
   dependencies:
     bluebird-lst-c "^1.0.5"
-    debug "^2.6.0"
-    electron-builder-http "11.1.1"
+    electron-builder-http "11.3.0"
     fs-extra-p "^3.0.3"
     js-yaml "^3.7.0"
     semver "^5.3.0"
@@ -340,36 +339,31 @@ electron-builder-core@11.2.1:
   version "11.2.1"
   resolved "https://registry.yarnpkg.com/electron-builder-core/-/electron-builder-core-11.2.1.tgz#1dca8c1a1cee8b51750b7708a04913aeffacf8a8"
 
-electron-builder-http@11.1.1:
-  version "11.1.1"
-  resolved "https://registry.yarnpkg.com/electron-builder-http/-/electron-builder-http-11.1.1.tgz#a46a1e3a3b968d0cc3e4e5b0c3e31f8227f141e0"
+electron-builder-http@11.3.0, electron-builder-http@~11.3.0:
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-http/-/electron-builder-http-11.3.0.tgz#9ac35fa08da30cff3c42dc3a2444958796afd117"
   dependencies:
+    debug "2.6.0"
     fs-extra-p "^3.0.3"
 
-electron-builder-http@11.2.0, electron-builder-http@~11.2.0:
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-http/-/electron-builder-http-11.2.0.tgz#f62b58253638bd95f93484bcaa0a2387b36b9bf7"
-  dependencies:
-    fs-extra-p "^3.0.3"
-
-electron-builder-util@11.2.5:
-  version "11.2.5"
-  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-11.2.5.tgz#5ba705dfa960ebc42d1e826202da4eca03969a01"
+electron-builder-util@11.4.0:
+  version "11.4.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-11.4.0.tgz#3f9937fd6b1f79d2e418e78d7ed74ff769b00d93"
   dependencies:
     "7zip-bin" "^2.0.4"
     bluebird-lst-c "^1.0.5"
     chalk "^1.1.3"
     debug "2.6.0"
-    electron-builder-http "~11.2.0"
+    electron-builder-http "~11.3.0"
     fs-extra-p "^3.0.3"
     is-ci "^1.0.10"
-    node-emoji "^1.5.0"
-    source-map-support "^0.4.8"
+    node-emoji "^1.5.1"
+    source-map-support "^0.4.9"
     stat-mode "^0.2.2"
 
 electron-builder@next:
-  version "11.2.5"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-11.2.5.tgz#603572127337a226563f5dd8295034edae58fe45"
+  version "11.4.3"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-11.4.3.tgz#6ea02a5d3bbd1a3a1fc6c96fba6c672e1eab4bf2"
   dependencies:
     "7zip-bin" "^2.0.4"
     asar-electron-builder "^0.13.5"
@@ -378,8 +372,8 @@ electron-builder@next:
     chromium-pickle-js "^0.2.0"
     cuint "^0.2.2"
     electron-builder-core "11.2.1"
-    electron-builder-http "11.2.0"
-    electron-builder-util "11.2.5"
+    electron-builder-http "11.3.0"
+    electron-builder-util "11.4.0"
     electron-download-tf "3.1.0"
     electron-macos-sign "~1.4.0"
     fs-extra-p "^3.0.3"
@@ -894,15 +888,15 @@ meow@^3.1.0:
     redent "^1.0.0"
     trim-newlines "^1.0.0"
 
-mime-db@~1.25.0:
-  version "1.25.0"
-  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.25.0.tgz#c18dbd7c73a5dbf6f44a024dc0d165a1e7b1c392"
+mime-db@~1.26.0:
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.26.0.tgz#eaffcd0e4fc6935cf8134da246e2e6c35305adff"
 
 mime-types@^2.1.12, mime-types@~2.1.7:
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.13.tgz#e07aaa9c6c6b9a7ca3012c69003ad25a39e92a88"
+  version "2.1.14"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.14.tgz#f7ef7d97583fcaf3b7d282b6f8b5679dab1e94ee"
   dependencies:
-    mime-db "~1.25.0"
+    mime-db "~1.26.0"
 
 mime@^1.3.4:
   version "1.3.4"
@@ -938,13 +932,17 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-nan@2.3.2, nan@^2.0.0:
+nan@2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.3.2.tgz#4d4ecf17e1da4e989efb4f273d8d00201cad087e"
 
-node-emoji@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.5.0.tgz#9a0d9fe03fd43afa357d6d8e439aa31e599959b7"
+nan@^2.0.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
+
+node-emoji@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.5.1.tgz#fd918e412769bf8c448051238233840b2aff16a1"
   dependencies:
     string.prototype.codepointat "^0.2.0"
 
@@ -988,8 +986,8 @@ oauth-sign@~0.8.1:
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
 object-assign@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 object-keys@~0.4.0:
   version "0.4.0"
@@ -1014,12 +1012,6 @@ os-locale@^1.4.0:
 os-tmpdir@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
-
-osascript@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/osascript/-/osascript-1.2.0.tgz#de82e292f0891dd0858ac5528e5ac772061c2a47"
-  dependencies:
-    duplex-child-process "0.0.5"
 
 osenv@^0.1.0:
   version "0.1.4"
@@ -1286,9 +1278,9 @@ sntp@1.x.x:
   dependencies:
     hoek "2.x.x"
 
-source-map-support@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.8.tgz#4871918d8a3af07289182e974e32844327b2e98b"
+source-map-support@^0.4.8, source-map-support@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.9.tgz#45eaa04f067e049d987b27599ed014a37750aaff"
   dependencies:
     source-map "^0.5.3"
 
@@ -1319,8 +1311,8 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
 sshpk@^1.7.0:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.10.1.tgz#30e1a5d329244974a1af61511339d595af6638b0"
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.10.2.tgz#d5a804ce22695515638e798dbe23273de070a5fa"
   dependencies:
     asn1 "~0.2.3"
     assert-plus "^1.0.0"
