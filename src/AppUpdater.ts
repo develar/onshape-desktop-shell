@@ -1,7 +1,7 @@
 import {BrowserWindow as BrowserWindowElectron} from "electron";
 import * as os from "os";
 import {isDev} from "./util";
-import {autoUpdater} from "electron-auto-updater";
+import {autoUpdater} from "electron-updater";
 import BrowserWindow = Electron.BrowserWindow
 
 export default class AppUpdater {

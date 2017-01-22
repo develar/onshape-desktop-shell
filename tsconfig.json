@@ -15,7 +15,7 @@
   },
   "include": [
     "node_modules/@types/*/*.d.ts",
-    "node_modules/electron-auto-updater/out/*.d.ts",
+    "node_modules/electron-updater/out/*.d.ts",
     "node_modules/electron-builder-http/out/*.d.ts",
     "node_modules/bluebird-lst-c/index.d.ts",
     "src/*.ts",
