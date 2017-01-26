@@ -15,11 +15,9 @@ export default class AppUpdater {
       return
     }
 
-    if (platform === "darwin") {
-      const log = require("electron-log")
-      log.transports.file.level = "info"
-      autoUpdater.logger = log
-    }
+    const log = require("electron-log")
+    log.transports.file.level = "info"
+    autoUpdater.logger = log
 
     autoUpdater.signals.updateDownloaded(it => {
       notify("A new update is ready to install", `Version ${it.version} is downloaded and will be automatically installed on Quit`)

@@ -33,8 +33,8 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.1.tgz#858610f58e4d48dd4410145eef9e12c97e3aacfd"
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.4.tgz#9aabc135979ded383325749f508894c662948c8b"
 
 ansi-align@^1.1.0:
   version "1.1.0"
@@ -335,9 +335,9 @@ electron-builder-http@11.5.0, electron-builder-http@~11.5.0:
     debug "2.6.0"
     fs-extra-p "^3.1.0"
 
-electron-builder-util@11.5.0:
-  version "11.5.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-11.5.0.tgz#90b9b9be9e7bc88b6002dfc1cc8635003119ddad"
+electron-builder-util@11.6.1:
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-11.6.1.tgz#0f556f67a70e4c8d75185569ef2a7566db015ecc"
   dependencies:
     "7zip-bin" "^2.0.4"
     bluebird-lst-c "^1.0.6"
@@ -351,8 +351,8 @@ electron-builder-util@11.5.0:
     stat-mode "^0.2.2"
 
 electron-builder@next:
-  version "11.5.1"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-11.5.1.tgz#91754c47658ab1cd32483c6cf74cbf36bf931ec6"
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-11.6.1.tgz#7614785732225e59219a46171b079d4bf2fc78fa"
   dependencies:
     "7zip-bin" "^2.0.4"
     asar-electron-builder "^0.13.5"
@@ -362,7 +362,7 @@ electron-builder@next:
     cuint "^0.2.2"
     electron-builder-core "11.2.1"
     electron-builder-http "11.5.0"
-    electron-builder-util "11.5.0"
+    electron-builder-util "11.6.1"
     electron-download-tf "3.1.0"
     electron-macos-sign "~1.5.0"
     fs-extra-p "^3.1.0"
@@ -440,9 +440,9 @@ electron-macos-sign@~1.5.0:
     isbinaryfile "^3.0.2"
     plist "^2.0.1"
 
-electron-updater@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-1.1.1.tgz#39e602b60fccb51b5d48a480bcae25f2987bf5c8"
+electron-updater@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-1.2.0.tgz#ce8c133144ae6357dab1a69f71b32f2a7ed85d49"
   dependencies:
     bluebird-lst-c "^1.0.6"
     electron-builder-http "11.5.0"
@@ -943,8 +943,8 @@ nan@2.3.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.3.2.tgz#4d4ecf17e1da4e989efb4f273d8d00201cad087e"
 
 nan@^2.0.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.1.tgz#d5b01691253326a97a2bbee9e61c55d8d60351e2"
 
 node-emoji@^1.5.1:
   version "1.5.1"
