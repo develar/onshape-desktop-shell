@@ -8,6 +8,13 @@
         <JSCodeStyleSettings>
           <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
         </JSCodeStyleSettings>
+        <TypeScriptCodeStyleSettings>
+          <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
+          <option name="FORCE_SEMICOLON_STYLE" value="true" />
+          <option name="FORCE_QUOTE_STYlE" value="true" />
+          <option name="SPACES_WITHIN_IMPORTS" value="true" />
+          <option name="IMPORT_SORT_MODULE_NAME" value="true" />
+        </TypeScriptCodeStyleSettings>
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>

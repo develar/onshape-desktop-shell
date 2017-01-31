@@ -1,11 +1,10 @@
-import {BrowserWindow as BrowserWindowElectron} from "electron";
-import * as os from "os";
-import {isDev} from "./util";
-import {autoUpdater} from "electron-updater";
-import BrowserWindow = Electron.BrowserWindow
+import { BrowserWindow as BrowserWindowElectron } from "electron"
+import { autoUpdater } from "electron-updater"
+import * as os from "os"
+import { isDev } from "./util"
 
 export default class AppUpdater {
-  constructor(window: BrowserWindow) {
+  constructor() {
     if (isDev()) {
       return
     }

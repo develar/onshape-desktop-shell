@@ -5,7 +5,6 @@ platform:
 
 cache:
   - node_modules
-  - app\node_modules
   - '%APPDATA%\npm-cache'
   - '%USERPROFILE%\.electron'
 
@@ -13,16 +12,11 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - ps: Install-Product node 6 x64
-  - git reset --hard HEAD
-  - npm install npm -g
-  - npm install electron-builder@next # force install next version to test electron-builder
-  - npm install
-  - npm prune
+  - ps: Install-Product node 7 x64
+  - yarn install
+  - yarn add electron-builder@next --dev # force install next version to test electron-builder
 
 build_script:
-  - node --version
-  - npm --version
-  - npm run dist
+  - yarn run dist
 
 test: off

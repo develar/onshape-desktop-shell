@@ -1,8 +1,8 @@
-import {app, BrowserWindow as BrowserWindowElectron, ipcMain} from "electron";
-import {StateManager, WindowItem, DEFAULT_URL} from "./StateManager";
-import * as path from "path";
-import AppUpdater from "./AppUpdater";
-import {WebContentsSignal, WindowEvent} from "./electronEventSignals";
+import { app, BrowserWindow as BrowserWindowElectron, ipcMain } from "electron"
+import * as path from "path"
+import AppUpdater from "./AppUpdater"
+import { WebContentsSignal, WindowEvent } from "./electronEventSignals"
+import { DEFAULT_URL, StateManager, WindowItem } from "./StateManager"
 import BrowserWindow = Electron.BrowserWindow
 import BrowserWindowOptions = Electron.BrowserWindowOptions
 
@@ -132,7 +132,7 @@ export default class WindowManager {
       this.windows.push(window)
     }
 
-    new AppUpdater(this.windows[0])
+    new AppUpdater()
   }
 
   focusFirstWindow(): void {
