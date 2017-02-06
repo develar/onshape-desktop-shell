@@ -21,7 +21,6 @@
       "node_modules"
     ],
     "nsis": {
-      "perMachine": true,
       "oneClick": false
     },
     "dmg": {
@@ -51,6 +50,7 @@
     "electron-is-dev": "^0.1.2",
     "electron-log": "^1.3.0",
     "electron-updater": "1.4.1",
+    "electron-updater": "1.4.2",
     "keytar": "^3.0.2",
     "nslog": "^3.0.0"
   },
