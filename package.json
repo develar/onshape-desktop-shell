@@ -39,6 +39,9 @@
         "AppImage",
         "deb"
       ]
+    },
+    "nsis": {
+      "unicode": false
     }
   },
   "dependencies": {
