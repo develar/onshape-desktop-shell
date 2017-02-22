@@ -1,7 +1,3 @@
-declare class Notification {
-  constructor(title: string, options: any)
-}
-
 (function (): void {
   "use strict"
 
