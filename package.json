@@ -15,11 +15,13 @@
   },
   "build": {
     "appId": "org.develar.onshape",
-    "category": "public.app-category.graphics-design",
     "files": [
       "out",
       "node_modules"
     ],
+    "mac": {
+      "category": "public.app-category.graphics-design"
+    },
     "dmg": {
       "contents": [
         {
@@ -58,7 +60,7 @@
     "@types/electron": "^1.4.32",
     "electron": "1.6.0",
     "electron-builder": "next",
-    "rimraf": "^2.5.4",
-    "typescript": "^2.1.6"
+    "rimraf": "^2.6.0",
+    "typescript": "^2.2.1"
   }
 }
