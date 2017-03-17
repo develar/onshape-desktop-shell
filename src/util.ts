@@ -12,10 +12,8 @@ if (isDev()) {
   }
 }
 else {
-  const nsLog = require("nslog")
-  _log = function (...args: any[]): void {
-    nsLog(args)
-  }
+  const log = require("electron-log")
+  _log = log.info.bind(log)
 }
 
 export function log(...args: any[]): void {
