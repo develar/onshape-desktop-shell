@@ -47,7 +47,7 @@ ajv@^4.9.1:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
-ajv@^5.0.4-beta.0:
+ajv@^5.0.4-beta.2:
   version "5.0.4-beta.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.0.4-beta.2.tgz#2b1dbc09cbd69ee0797489894ab38d12c914e121"
   dependencies:
@@ -338,26 +338,26 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-electron-builder-core@15.6.3:
-  version "15.6.3"
-  resolved "https://registry.yarnpkg.com/electron-builder-core/-/electron-builder-core-15.6.3.tgz#c43e5ed38d249317a5bcf21c2c1d56ba1bf9ed3a"
+electron-builder-core@16.6.0:
+  version "16.6.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-core/-/electron-builder-core-16.6.0.tgz#31b22b70bef78e7012355d3aaf25f7f69f9084f7"
 
-electron-builder-http@16.4.0, electron-builder-http@~16.4.0:
-  version "16.4.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-http/-/electron-builder-http-16.4.0.tgz#9be0088736120801c18deb79c9f0532af62e94cb"
+electron-builder-http@16.6.0, electron-builder-http@~16.6.0:
+  version "16.6.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-http/-/electron-builder-http-16.6.0.tgz#60676caf0f1d9daf385ce070b07eec49efb29f0f"
   dependencies:
     debug "2.6.3"
     fs-extra-p "^4.1.0"
 
-electron-builder-util@16.4.0, electron-builder-util@~16.4.0:
-  version "16.4.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-16.4.0.tgz#9f79640f5ed694c7998bb096363308f7f09f04a1"
+electron-builder-util@16.6.0, electron-builder-util@~16.6.0:
+  version "16.6.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-16.6.0.tgz#9a555c6e4e785e406a807abfd88aa1369665ac7d"
   dependencies:
     "7zip-bin" "^2.0.4"
     bluebird-lst "^1.0.2"
     chalk "^1.1.3"
     debug "2.6.3"
-    electron-builder-http "~16.4.0"
+    electron-builder-http "~16.6.0"
     fs-extra-p "^4.1.0"
     ini "^1.3.4"
     is-ci "^1.0.10"
@@ -367,22 +367,22 @@ electron-builder-util@16.4.0, electron-builder-util@~16.4.0:
     tunnel-agent "^0.6.0"
 
 electron-builder@next:
-  version "16.5.1"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-16.5.1.tgz#42b91cd7ffc06a3a0f75fb7ef3e0c894fda6d72f"
+  version "16.6.0"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-16.6.0.tgz#c9627ddb63b3d11254d7b4ee6c9a03c0e4e63f21"
   dependencies:
     "7zip-bin" "^2.0.4"
-    ajv "^5.0.4-beta.0"
+    ajv "^5.0.4-beta.2"
     ajv-keywords "^2.0.1-beta.2"
     bluebird-lst "^1.0.2"
     chalk "^1.1.3"
     chromium-pickle-js "^0.2.0"
     cuint "^0.2.2"
-    electron-builder-core "15.6.3"
-    electron-builder-http "16.4.0"
-    electron-builder-util "16.4.0"
+    electron-builder-core "16.6.0"
+    electron-builder-http "16.6.0"
+    electron-builder-util "16.6.0"
     electron-download-tf "4.1.1"
     electron-macos-sign "~1.6.0"
-    electron-publish "16.4.0"
+    electron-publish "16.6.0"
     fs-extra-p "^4.1.0"
     hosted-git-info "^2.4.1"
     is-ci "^1.0.10"
@@ -441,9 +441,9 @@ electron-localshortcut@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/electron-localshortcut/-/electron-localshortcut-0.6.1.tgz#c4e268c38a6e42f40de5618fc906d1ed608f11aa"
 
-electron-log@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-2.0.0.tgz#4bf05f3126c3e653968e28bb09837d5541c15eea"
+electron-log@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-2.0.2.tgz#ea7c3d584da1e02df48e68f16fb750b61e3ab05b"
 
 electron-macos-sign@~1.6.0:
   version "1.6.0"
@@ -455,24 +455,24 @@ electron-macos-sign@~1.6.0:
     isbinaryfile "^3.0.2"
     plist "^2.0.1"
 
-electron-publish@16.4.0:
-  version "16.4.0"
-  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-16.4.0.tgz#e02ff2a6095c29983d9e150515d69f2bde90a908"
+electron-publish@16.6.0:
+  version "16.6.0"
+  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-16.6.0.tgz#8517ad1b7c53f5ae2ec50ff286f69914000c5d32"
   dependencies:
     bluebird-lst "^1.0.2"
     chalk "^1.1.3"
-    electron-builder-http "~16.4.0"
-    electron-builder-util "~16.4.0"
+    electron-builder-http "~16.6.0"
+    electron-builder-util "~16.6.0"
     fs-extra-p "^4.1.0"
     mime "^1.3.4"
     progress-ex "^2.0.0"
 
-electron-updater@^1.11.1:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-1.11.1.tgz#e30d080310486c22e3b25a671c155300b0cdfa22"
+electron-updater@^1.11.2:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-1.11.2.tgz#87afc623bd2a7d4345e7cc2329937221a85e0132"
   dependencies:
     bluebird-lst "^1.0.2"
-    electron-builder-http "~16.4.0"
+    electron-builder-http "~16.6.0"
     fs-extra-p "^4.1.0"
     js-yaml "^3.8.2"
     semver "^5.3.0"
@@ -1146,8 +1146,8 @@ qs@~6.4.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
 rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/rc/-/rc-1.1.7.tgz#c5ea564bb07aff9fd3a5b32e906c1d3a65940fea"
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.0.tgz#c7de973b7b46297c041366b2fd3d2363b1697c66"
   dependencies:
     deep-extend "~0.4.0"
     ini "~1.3.0"

@@ -47,8 +47,8 @@
     "configstore": "^3.0.0",
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
-    "electron-log": "^2.0.0",
-    "electron-updater": "^1.11.1",
+    "electron-log": "^2.0.2",
+    "electron-updater": "^1.11.2",
     "keytar": "^3.0.2"
   },
   "devDependencies": {
