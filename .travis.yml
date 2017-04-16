@@ -22,6 +22,7 @@ addons:
   apt:
     packages:
       - libgnome-keyring-dev
+      - libsecret-1-dev
       - icnsutils
 
 before_install:
