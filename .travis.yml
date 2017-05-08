@@ -5,6 +5,9 @@ sudo: false
 
 language: c
 
+env:
+  - ELECTRON_CACHE=$HOME/.electron
+
 matrix:
   include:
     - os: osx
