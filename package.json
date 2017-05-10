@@ -44,7 +44,7 @@
     }
   },
   "dependencies": {
-    "configstore": "^3.0.0",
+    "configstore": "3.0.0",
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
     "electron-log": "^2.2.4",
