@@ -47,7 +47,7 @@
     "configstore": "^3.0.0",
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
-    "electron-log": "^2.2.4",
+    "electron-log": "2.2.4",
     "electron-updater": "^1.15.0",
     "keytar": "^4.0.2",
     "notion-spellchecker": "^3.3.3"
