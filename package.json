@@ -44,18 +44,17 @@
     }
   },
   "dependencies": {
-    "configstore": "^3.0.0",
+    "configstore": "^3.1.0",
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
-    "electron-log": "^2.2.4",
+    "electron-log": "^2.2.6",
     "electron-updater": "^1.15.0",
-    "keytar": "^4.0.2",
-    "notion-spellchecker": "^3.3.3"
+    "keytar": "^4.0.2"
   },
   "devDependencies": {
     "@types/debug": "0.0.29",
     "@types/electron": "^1.4.37",
-    "electron": "1.6.8",
+    "electron": "1.7.0",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
     "typescript": "^2.3.2"
