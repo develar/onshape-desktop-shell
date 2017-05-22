@@ -48,13 +48,13 @@
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
     "electron-log": "^2.2.6",
-    "electron-updater": "^1.15.0",
-    "keytar": "^4.0.2"
+    "electron-updater": "^1.16.0",
+    "keytar": "^4.0.3"
   },
   "devDependencies": {
     "@types/debug": "0.0.29",
-    "@types/electron": "^1.4.37",
-    "electron": "1.7.0",
+    "@types/electron": "^1.4.38",
+    "electron": "1.7.1",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
     "typescript": "^2.3.2"
