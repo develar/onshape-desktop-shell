@@ -1,6 +1,6 @@
 {
   "name": "Onshape",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell)",
   "author": "Vladimir Krivosheev <develar@gmail.com>",
@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@types/debug": "0.0.29",
-    "electron": "1.7.1",
+    "electron": "1.7.2",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
     "typescript": "^2.3.4"
