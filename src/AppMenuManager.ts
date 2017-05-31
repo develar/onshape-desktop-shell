@@ -1,11 +1,11 @@
-import {app, Menu, shell, BrowserWindow, ipcMain} from "electron";
-import {WINDOW_NAVIGATED} from "./WindowManager";
-import {AppSignal} from "./electronEventSignals";
-import MenuItemOptions = Electron.MenuItemOptions
+import { app, BrowserWindow, ipcMain, Menu, shell } from "electron"
+import { AppSignal } from "./electronEventSignals"
+import { WINDOW_NAVIGATED } from "./WindowManager"
+import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions
 import WebContents = Electron.WebContents
 
 export default function setMenu(homeUrl: string) {
-  const windowsMenu: MenuItemOptions = {
+  const windowsMenu: MenuItemConstructorOptions = {
     label: 'Window',
     role: 'window',
     submenu: [
@@ -23,7 +23,7 @@ export default function setMenu(homeUrl: string) {
   }
 
   const name = app.getName()
-  const template: Array<MenuItemOptions> = [
+  const template: Array<MenuItemConstructorOptions> = [
     {
       label: 'Edit',
       submenu: [
@@ -185,7 +185,7 @@ export default function setMenu(homeUrl: string) {
       ]
     });
 
-    (<Array<MenuItemOptions>>(windowsMenu.submenu)).push(
+    (<Array<MenuItemConstructorOptions>>(windowsMenu.submenu)).push(
       {
         type: 'separator'
       },
@@ -207,7 +207,7 @@ export default function setMenu(homeUrl: string) {
   Menu.setApplicationMenu(appMenu)
 }
 
-function updateHistoryMenuItems(items: MenuItemOptions[], homeUrl: string) {
+function updateHistoryMenuItems(items: Array<MenuItemConstructorOptions>, homeUrl: string) {
   function updateEnabled(webContents: WebContents) {
     items[0].enabled = webContents.canGoBack()
     items[1].enabled = webContents.canGoForward()

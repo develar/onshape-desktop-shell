@@ -4,7 +4,7 @@ import AppUpdater from "./AppUpdater"
 import { WebContentsSignal, WindowEvent } from "./electronEventSignals"
 import { DEFAULT_URL, StateManager, WindowItem } from "./StateManager"
 import BrowserWindow = Electron.BrowserWindow
-import BrowserWindowOptions = Electron.BrowserWindowOptions
+import BrowserWindowConstructorOptions = Electron.BrowserWindowConstructorOptions
 
 export const WINDOW_NAVIGATED = "windowNavigated"
 
@@ -45,8 +45,7 @@ export default class WindowManager {
   }
 
   private registerWindowEventHandlers(window: BrowserWindow, descriptor: WindowItem): void {
-    window.on("close", (event: WindowEvent) => {
-      const window = event.sender
+    window.on("close", () => {
       WindowManager.saveWindowState(window, descriptor)
       const url = window.webContents.getURL()
       if (!isUrlInvalid(url)) {
@@ -100,7 +99,7 @@ export default class WindowManager {
         descriptor.url = DEFAULT_URL
       }
 
-      const options: BrowserWindowOptions = {
+      const options: BrowserWindowConstructorOptions = {
         // to avoid visible maximizing
         show: false,
         webPreferences: {
