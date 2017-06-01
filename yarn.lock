@@ -2,33 +2,33 @@
 # yarn lockfile v1
 
 
-"7zip-bin-linux@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/7zip-bin-linux/-/7zip-bin-linux-1.0.3.tgz#66724d7bb7526381574393888f62566ed537151c"
+"7zip-bin-linux@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/7zip-bin-linux/-/7zip-bin-linux-1.1.0.tgz#2ca309fd6a2102e18bd81e3a5d91b39db9adab71"
 
 "7zip-bin-mac@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/7zip-bin-mac/-/7zip-bin-mac-1.0.1.tgz#3e68778bbf0926adc68159427074505d47555c02"
 
-"7zip-bin-win@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/7zip-bin-win/-/7zip-bin-win-2.0.2.tgz#4c36399413922f111b8e80df3065a4069cfc0a64"
+"7zip-bin-win@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/7zip-bin-win/-/7zip-bin-win-2.1.0.tgz#ce632da797ec282c5d2a8d07b60e8df7ca7f164d"
 
-"7zip-bin@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-2.0.4.tgz#0cd28ac3301b1302fbd99922bacb8bad98103e12"
+"7zip-bin@^2.0.4", "7zip-bin@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-2.1.0.tgz#d728d3f950895cfcfee1a166fe93afc07dfe35a9"
   optionalDependencies:
-    "7zip-bin-linux" "^1.0.3"
+    "7zip-bin-linux" "^1.1.0"
     "7zip-bin-mac" "^1.0.1"
-    "7zip-bin-win" "^2.0.2"
+    "7zip-bin-win" "^2.1.0"
 
 "@types/debug@0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
 
 "@types/node@^7.0.18":
-  version "7.0.22"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.22.tgz#4593f4d828bdd612929478ea40c67b4f403ca255"
+  version "7.0.23"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.23.tgz#ededfd92e61046c32fcad56ea7e1101733fad4a4"
 
 ajv-keywords@^2.1.0:
   version "2.1.0"
@@ -377,10 +377,10 @@ electron-builder-util@18.3.0, electron-builder-util@~18.3.0:
     tunnel-agent "^0.6.0"
 
 electron-builder@next:
-  version "18.3.0"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-18.3.0.tgz#08d3669039313e63162188fb99dfb2efc7ebe1b4"
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-18.3.1.tgz#8cfe2aa12d020f91e1021ac02391bcd526c5f7ff"
   dependencies:
-    "7zip-bin" "^2.0.4"
+    "7zip-bin" "^2.1.0"
     ajv "^5.1.5"
     ajv-keywords "^2.1.0"
     bluebird-lst "^1.0.2"
