@@ -377,8 +377,8 @@ electron-builder-util@18.3.0, electron-builder-util@~18.3.0:
     tunnel-agent "^0.6.0"
 
 electron-builder@next:
-  version "18.3.1"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-18.3.1.tgz#8cfe2aa12d020f91e1021ac02391bcd526c5f7ff"
+  version "18.3.2"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-18.3.2.tgz#35b2406f4ecdb46cf4c66127de74a27bfbbd4696"
   dependencies:
     "7zip-bin" "^2.1.0"
     ajv "^5.1.5"
