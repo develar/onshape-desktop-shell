@@ -14,7 +14,7 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/7zip-bin-win/-/7zip-bin-win-2.1.0.tgz#ce632da797ec282c5d2a8d07b60e8df7ca7f164d"
 
-"7zip-bin@^2.0.4", "7zip-bin@^2.1.0":
+"7zip-bin@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-2.1.0.tgz#d728d3f950895cfcfee1a166fe93afc07dfe35a9"
   optionalDependencies:
@@ -27,8 +27,8 @@
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
 
 "@types/node@^7.0.18":
-  version "7.0.23"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.23.tgz#ededfd92e61046c32fcad56ea7e1101733fad4a4"
+  version "7.0.27"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.27.tgz#ba5e1a87aca2b4f5817289615ffe56472927687e"
 
 ajv-keywords@^2.1.0:
   version "2.1.0"
@@ -71,6 +71,13 @@ argparse@^1.0.7:
 array-find-index@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
+
+asar-integrity@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/asar-integrity/-/asar-integrity-0.1.1.tgz#1a709dd78443707fc260f7ce363d9569983caf76"
+  dependencies:
+    bluebird-lst "^1.0.2"
+    fs-extra-p "^4.3.0"
 
 asn1@~0.2.3:
   version "0.2.3"
@@ -144,10 +151,6 @@ brace-expansion@^1.1.7:
   dependencies:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
-
-buffer-shims@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
 builtin-modules@^1.0.0:
   version "1.1.1"
@@ -341,13 +344,13 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-electron-builder-core@17.2.0:
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-core/-/electron-builder-core-17.2.0.tgz#e235d11aae64bffbad36b601ac58173f9377f619"
+electron-builder-core@18.4.0:
+  version "18.4.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-core/-/electron-builder-core-18.4.0.tgz#e60129df2e6800cd6829c7e0dd7fa0538d1a197f"
 
-electron-builder-http@18.3.0, electron-builder-http@~18.3.0:
-  version "18.3.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-http/-/electron-builder-http-18.3.0.tgz#01cf7445996b09475515b55006b6b80d75a0360e"
+electron-builder-http@18.5.0, electron-builder-http@~18.5.0:
+  version "18.5.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-http/-/electron-builder-http-18.5.0.tgz#0460b617e56d158f47b50401074fbd1369417596"
   dependencies:
     debug "2.6.8"
     fs-extra-p "^4.3.0"
@@ -359,15 +362,15 @@ electron-builder-http@~17.9.0:
     debug "2.6.8"
     fs-extra-p "^4.3.0"
 
-electron-builder-util@18.3.0, electron-builder-util@~18.3.0:
-  version "18.3.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-18.3.0.tgz#7a13cb550f05675898c55d987dbb12fed4e8a2bf"
+electron-builder-util@18.5.0, electron-builder-util@~18.5.0:
+  version "18.5.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-18.5.0.tgz#18280c7de0165556ac62bf85d5099a64d44260dc"
   dependencies:
-    "7zip-bin" "^2.0.4"
+    "7zip-bin" "^2.1.0"
     bluebird-lst "^1.0.2"
     chalk "^1.1.3"
     debug "2.6.8"
-    electron-builder-http "~18.3.0"
+    electron-builder-http "~18.5.0"
     fs-extra-p "^4.3.0"
     ini "^1.3.4"
     is-ci "^1.0.10"
@@ -377,23 +380,24 @@ electron-builder-util@18.3.0, electron-builder-util@~18.3.0:
     tunnel-agent "^0.6.0"
 
 electron-builder@next:
-  version "18.3.4"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-18.3.4.tgz#5a8f5b91f25924665bfffb7013f530d5a725b86d"
+  version "18.5.0"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-18.5.0.tgz#86f457be48d164003505da3df5513e7e91ad495f"
   dependencies:
     "7zip-bin" "^2.1.0"
     ajv "^5.1.5"
     ajv-keywords "^2.1.0"
+    asar-integrity "0.1.1"
     bluebird-lst "^1.0.2"
     chalk "^1.1.3"
     chromium-pickle-js "^0.2.0"
     cuint "^0.2.2"
     debug "2.6.8"
-    electron-builder-core "17.2.0"
-    electron-builder-http "18.3.0"
-    electron-builder-util "18.3.0"
+    electron-builder-core "18.4.0"
+    electron-builder-http "18.5.0"
+    electron-builder-util "18.5.0"
     electron-download-tf "4.3.1"
-    electron-osx-sign "0.4.5"
-    electron-publish "18.3.0"
+    electron-osx-sign "0.4.6"
+    electron-publish "18.5.0"
     fs-extra-p "^4.3.0"
     hosted-git-info "^2.4.2"
     is-ci "^1.0.10"
@@ -458,9 +462,9 @@ electron-log@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-2.2.6.tgz#ccfa3e09b39f321468c90a642701380a34079f1a"
 
-electron-osx-sign@0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/electron-osx-sign/-/electron-osx-sign-0.4.5.tgz#59037cae6ac05ba9e802f76d9bb772b31a8c75c7"
+electron-osx-sign@0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/electron-osx-sign/-/electron-osx-sign-0.4.6.tgz#2398e2d7cab5c1d8c3eeabb1cd490376528ec39a"
   dependencies:
     bluebird "^3.4.7"
     compare-version "^0.1.2"
@@ -470,14 +474,14 @@ electron-osx-sign@0.4.5:
     plist "^2.0.1"
     tempfile "^1.1.1"
 
-electron-publish@18.3.0:
-  version "18.3.0"
-  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-18.3.0.tgz#403b4d6f00360c0057b3a05c45b44b21bfaccdc8"
+electron-publish@18.5.0:
+  version "18.5.0"
+  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-18.5.0.tgz#dca7df69c2b0470fab32cfc2490b32438d1e3511"
   dependencies:
     bluebird-lst "^1.0.2"
     chalk "^1.1.3"
-    electron-builder-http "~18.3.0"
-    electron-builder-util "~18.3.0"
+    electron-builder-http "~18.5.0"
+    electron-builder-util "~18.5.0"
     fs-extra-p "^4.3.0"
     mime "^1.3.6"
 
@@ -1305,14 +1309,14 @@ read-pkg@^2.0.0:
     path-type "^2.0.0"
 
 readable-stream@^2.2.2:
-  version "2.2.9"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.9.tgz#cf78ec6f4a6d1eb43d26488cac97f042e74b7fc8"
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.10.tgz#effe72bb7c884c0dd335e2379d526196d9d011ee"
   dependencies:
-    buffer-shims "~1.0.0"
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
     process-nextick-args "~1.0.6"
+    safe-buffer "^5.0.1"
     string_decoder "~1.0.0"
     util-deprecate "~1.0.1"
 
@@ -1393,8 +1397,8 @@ rimraf@^2.2.8, rimraf@^2.6.1:
     glob "^7.0.5"
 
 safe-buffer@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.0.tgz#fe4c8460397f9eaaaa58e73be46273408a45e223"
 
 sanitize-filename@^1.6.1:
   version "1.6.1"
