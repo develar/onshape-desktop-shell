@@ -1,6 +1,6 @@
 {
   "name": "Onshape",
-  "version": "0.5.11",
+  "version": "0.5.9",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell)",
   "author": "Vladimir Krivosheev <develar@gmail.com>",
@@ -16,8 +16,7 @@
   "build": {
     "appId": "org.develar.onshape",
     "files": [
-      "out",
-      "node_modules"
+      "out"
     ],
     "mac": {
       "category": "public.app-category.graphics-design"
@@ -53,7 +52,7 @@
   },
   "devDependencies": {
     "@types/debug": "0.0.29",
-    "electron": "1.7.2",
+    "electron": "1.7.3",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
     "typescript": "^2.3.4"
