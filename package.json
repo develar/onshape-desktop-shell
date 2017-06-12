@@ -1,6 +1,6 @@
 {
   "name": "Onshape",
-  "version": "0.5.9",
+  "version": "0.5.12",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell)",
   "author": "Vladimir Krivosheev <develar@gmail.com>",
@@ -9,9 +9,9 @@
     "postinstall": "install-app-deps",
     "start": "yarn install && yarn compile && electron ./app",
     "compile": "rimraf app/out && tsc",
-    "pack": "yarn compile && build --dir",
-    "dist": "yarn compile && build",
-    "release": "yarn compile && build"
+    "pack": "yarn compile && electron-builder --dir",
+    "dist": "yarn compile && electron-builder",
+    "release": "yarn compile && electron-builder"
   },
   "build": {
     "appId": "org.develar.onshape",
