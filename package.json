@@ -51,10 +51,10 @@
     "keytar": "^4.0.3"
   },
   "devDependencies": {
-    "@types/debug": "0.0.29",
-    "electron": "1.7.3",
+    "@types/debug": "^0.0.29",
+    "electron": "1.7.2",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
-    "typescript": "^2.3.4"
+    "typescript": "^2.4.0"
   }
 }
