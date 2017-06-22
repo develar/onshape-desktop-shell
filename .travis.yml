@@ -13,8 +13,6 @@ matrix:
   include:
     - os: osx
     - os: linux
-      env: CC=clang CXX=clang++ npm_config_clang=1
-      compiler: clang
 
 cache:
   directories:
@@ -27,13 +25,12 @@ addons:
     packages:
       - libgnome-keyring-dev
       - libsecret-1-dev
-      - icnsutils
 
 before_install:
   - mkdir -p /tmp/git-lfs && curl -L https://github.com/github/git-lfs/releases/download/v2.1.1/git-lfs-$([ "$TRAVIS_OS_NAME" == "linux" ] && echo "linux" || echo "darwin")-amd64-2.1.1.tar.gz | tar -xz -C /tmp/git-lfs --strip-components 1 && /tmp/git-lfs/git-lfs pull
 
 install:
-- yarn
+- yarn install
 - yarn add electron-builder@next --dev # force install next version to test electron-builder
 
 script:
