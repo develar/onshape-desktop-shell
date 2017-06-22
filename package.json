@@ -44,10 +44,10 @@
   },
   "dependencies": {
     "configstore": "^3.1.0",
-    "electron-debug": "^1.1.0",
+    "electron-debug": "^1.2.0",
     "electron-is-dev": "^0.1.2",
     "electron-log": "^2.2.6",
-    "electron-updater": "^2.3.1",
+    "electron-updater": "^2.4.2",
     "keytar": "^4.0.3"
   },
   "devDependencies": {
@@ -55,6 +55,6 @@
     "electron": "1.7.3",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
-    "typescript": "^2.4.0"
+    "typescript": "^2.3.4"
   }
 }
