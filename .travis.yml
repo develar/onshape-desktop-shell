@@ -10,10 +10,9 @@ env:
   - ELECTRON_CACHE=$HOME/.cache/electron
   - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
-matrix:
-  include:
-    - os: osx
-    - os: linux
+os:
+  - linux
+  - osx
 
 cache:
   directories:
