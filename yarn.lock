@@ -429,8 +429,8 @@ electron-builder-util@19.12.0, electron-builder-util@~19.12.0:
     tunnel-agent "^0.6.0"
 
 electron-builder@next:
-  version "19.12.1"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.12.1.tgz#d71efd00cb2cf3e3393b0b92cbedb5a38251eacf"
+  version "19.13.0"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.13.0.tgz#a6fbd8d4e1da9f4f0720f553f708c27993e5471b"
   dependencies:
     "7zip-bin" "^2.1.0"
     ajv "^5.2.0"
