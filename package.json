@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@types/debug": "^0.0.29",
-    "electron": "1.7.4",
+    "electron": "1.7.5",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
     "typescript": "^2.4.1"
