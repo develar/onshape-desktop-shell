@@ -36,6 +36,7 @@
       ]
     },
     "linux": {
+      "category": "Graphics",
       "target": [
         "AppImage",
         "deb"
@@ -43,18 +44,19 @@
     }
   },
   "dependencies": {
-    "configstore": "^3.1.0",
-    "electron-debug": "^1.2.0",
-    "electron-is-dev": "^0.2.0",
+    "configstore": "^3.1.1",
+    "electron-debug": "^1.4.0",
+    "electron-is-dev": "^0.3.0",
     "electron-log": "^2.2.7",
-    "electron-updater": "^2.4.5",
-    "keytar-prebuild": "^4.0.3"
+    "electron-updater": "^2.8.6",
+    "keytar-prebuild": "^4.0.3",
+    "serialport": "6.0.0-beta1"
   },
   "devDependencies": {
-    "@types/debug": "^0.0.29",
-    "electron": "1.7.4",
+    "@types/debug": "^0.0.30",
+    "electron": "1.7.6",
     "electron-builder": "next",
     "rimraf": "^2.6.1",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.2"
   }
 }
