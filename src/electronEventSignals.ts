@@ -1,7 +1,7 @@
-import WebContents = Electron.WebContents
 import BrowserWindow = Electron.BrowserWindow
-import EventEmitter = NodeJS.EventEmitter;
-import {app} from "electron";
+import WebContents = Electron.WebContents
+import EventEmitter = NodeJS.EventEmitter
+import { app } from "electron"
 
 export interface WindowEvent {
   sender: BrowserWindow
@@ -17,7 +17,7 @@ function isEnvTrue(v: string): boolean {
 
 const isLogEvent = isEnvTrue(process.env.LOG_EVENTS)
 
-function addHandler(emitter: EventEmitter, event: string, handler: Function) {
+function addHandler(emitter: EventEmitter, event: string, handler: (...args: any[]) => void) {
   if (isLogEvent) {
     emitter.on(event, function (...args: any[]) {
       console.log("%s %s", event, args)

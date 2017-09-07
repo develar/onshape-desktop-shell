@@ -1,4 +1,4 @@
-import { BrowserWindow as BrowserWindowElectron } from "electron"
+import { Notification } from "electron"
 import { autoUpdater } from "electron-updater"
 import * as os from "os"
 import { isDev } from "./util"
@@ -19,17 +19,11 @@ export default class AppUpdater {
     autoUpdater.logger = log
 
     autoUpdater.signals.updateDownloaded(it => {
-      notify("A new update is ready to install", `Version ${it.version} is downloaded and will be automatically installed on Quit`)
+      new Notification({
+        title: "A new update is ready to install",
+        body: `Version ${it.version} is downloaded and will be automatically installed on Quit`
+      }).show()
     })
     autoUpdater.checkForUpdates()
   }
-}
-
-function notify(title: string, message: string) {
-  let windows = BrowserWindowElectron.getAllWindows()
-  if (windows.length == 0) {
-    return
-  }
-
-  windows[0].webContents.send("notify", title, message)
 }
