@@ -54,8 +54,11 @@
   "devDependencies": {
     "@types/debug": "^0.0.30",
     "electron": "1.8.0",
-    "electron-builder": "next",
+    "electron-builder": "^19.28.1",
     "rimraf": "^2.6.1",
     "typescript": "^2.5.2"
+  },
+  "resolutions": {
+    "node-abi": "^2.1.1"
   }
 }
