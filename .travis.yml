@@ -21,7 +21,9 @@ cache:
   - node_modules
   - $HOME/.cache/electron
   - $HOME/.cache/electron-builder
-
+  - $HOME/.npm
+  - $HOME/.yarn-cache
+    
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install git-lfs; fi
   - git-lfs pull
@@ -34,6 +36,8 @@ script:
         -v ${PWD}:/project \
         -v ~/.cache/electron:/root/.cache/electron \
         -v ~/.cache/electron-builder:/root/.cache/electron-builder \
+        -v $HOME/.npm:/root/.npm \
+        -v $HOME/.yarn-cache:/root/.yarn-cache \
         electronuserland/builder:wine \
         /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn release --linux --win"
     else
