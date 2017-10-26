@@ -192,9 +192,9 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-builder-util-runtime@2.4.0, builder-util-runtime@^2.4.0, builder-util-runtime@~2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-2.4.0.tgz#403b3c17aed596752a56e4a7d696c5eee59142c1"
+builder-util-runtime@2.5.0, builder-util-runtime@^2.5.0, builder-util-runtime@~2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-2.5.0.tgz#22373d4faab8d89e0b077630aef76538deb38476"
   dependencies:
     bluebird-lst "^1.0.5"
     debug "^3.1.0"
@@ -210,13 +210,13 @@ builder-util-runtime@^2.3.0:
     fs-extra-p "^4.4.4"
     sax "^1.2.4"
 
-builder-util@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.1.0.tgz#f89f1f41f8d114ab317f7ed3a7af349360971230"
+builder-util@3.1.1, builder-util@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.1.1.tgz#3b8e198bdb239f6c70958b182753689af6e7dfef"
   dependencies:
     "7zip-bin" "^2.2.7"
     bluebird-lst "^1.0.5"
-    builder-util-runtime "^2.4.0"
+    builder-util-runtime "^2.5.0"
     chalk "^2.3.0"
     debug "^3.1.0"
     fs-extra-p "^4.4.4"
@@ -504,17 +504,17 @@ ejs@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
-electron-builder@^19.41.0:
-  version "19.41.0"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.41.0.tgz#2dcf6c95670672c9130d3a710aef575a0a826489"
+electron-builder@^19.42.0:
+  version "19.42.0"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.42.0.tgz#9634c113c43479a761833d3e5af0375b27704afa"
   dependencies:
     "7zip-bin" "^2.2.7"
     app-package-builder "1.3.1"
     asar-integrity "0.2.3"
     async-exit-hook "^2.0.1"
     bluebird-lst "^1.0.5"
-    builder-util "3.1.0"
-    builder-util-runtime "2.4.0"
+    builder-util "3.1.1"
+    builder-util-runtime "2.5.0"
     chalk "^2.3.0"
     chromium-pickle-js "^0.2.0"
     cuint "^0.2.2"
@@ -523,7 +523,7 @@ electron-builder@^19.41.0:
     ejs "^2.5.7"
     electron-download-tf "4.3.4"
     electron-osx-sign "0.4.7"
-    electron-publish "19.40.0"
+    electron-publish "19.42.0"
     fs-extra-p "^4.4.4"
     hosted-git-info "^2.5.0"
     is-ci "^1.0.10"
@@ -607,23 +607,23 @@ electron-osx-sign@0.4.7:
     minimist "^1.2.0"
     plist "^2.1.0"
 
-electron-publish@19.40.0:
-  version "19.40.0"
-  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-19.40.0.tgz#e7b48bf3c033d9ffa68254467fab0506d81773af"
+electron-publish@19.42.0:
+  version "19.42.0"
+  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-19.42.0.tgz#d8744d20626d6c7b237547508f332b2999cecda5"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util "^3.0.13"
-    builder-util-runtime "^2.4.0"
-    chalk "2.1.0"
+    builder-util "^3.1.1"
+    builder-util-runtime "^2.5.0"
+    chalk "^2.3.0"
     fs-extra-p "^4.4.4"
     mime "^2.0.3"
 
-electron-updater@^2.15.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.15.0.tgz#f9b521284afceaccf0a151d31c036e38ca308637"
+electron-updater@^2.15.1:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.15.1.tgz#9cd218d5960b4e36b2528e92aff102d05911f9ae"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util-runtime "~2.4.0"
+    builder-util-runtime "~2.5.0"
     electron-is-dev "^0.3.0"
     fs-extra-p "^4.4.4"
     js-yaml "^3.10.0"
