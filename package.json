@@ -54,7 +54,7 @@
   "devDependencies": {
     "@types/debug": "^0.0.30",
     "electron": "1.7.9",
-    "electron-builder": "^19.45.3",
+    "electron-builder": "^19.45.4",
     "rimraf": "^2.6.2",
     "typescript": "^2.6.1"
   }
