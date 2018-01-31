@@ -2,29 +2,17 @@
 # yarn lockfile v1
 
 
-"7zip-bin-linux@^1.1.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/7zip-bin-linux/-/7zip-bin-linux-1.2.0.tgz#c0ddfb640b255e14bd6730c26af45b2669c0193c"
-
 "7zip-bin-linux@~1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/7zip-bin-linux/-/7zip-bin-linux-1.3.1.tgz#4856db1ab1bf5b6ee8444f93f5a8ad71446d00d5"
 
-"7zip-bin-mac@^1.0.1", "7zip-bin-mac@~1.0.1":
+"7zip-bin-mac@~1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/7zip-bin-mac/-/7zip-bin-mac-1.0.1.tgz#3e68778bbf0926adc68159427074505d47555c02"
 
-"7zip-bin-win@^2.1.1", "7zip-bin-win@~2.1.1":
+"7zip-bin-win@~2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/7zip-bin-win/-/7zip-bin-win-2.1.1.tgz#8acfc28bb34e53a9476b46ae85a97418e6035c20"
-
-"7zip-bin@^2.3.4":
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-2.3.4.tgz#0861a3c99793dd794f4dd6175ec4ddfa6af8bc9d"
-  optionalDependencies:
-    "7zip-bin-linux" "^1.1.0"
-    "7zip-bin-mac" "^1.0.1"
-    "7zip-bin-win" "^2.1.1"
 
 "7zip-bin@^2.4.1":
   version "2.4.1"
@@ -188,51 +176,22 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-builder-util-runtime@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-4.0.2.tgz#673f1a0f2e275e6f80a16ce57225589a003c9a52"
+builder-util-runtime@4.0.4, builder-util-runtime@^4.0.4, builder-util-runtime@~4.0.3:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-4.0.4.tgz#c92c352097006a07f3324ea200fa815440cba198"
   dependencies:
     bluebird-lst "^1.0.5"
     debug "^3.1.0"
     fs-extra-p "^4.5.0"
     sax "^1.2.4"
 
-builder-util-runtime@^4.0.2, builder-util-runtime@^4.0.3, builder-util-runtime@~4.0.2:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-4.0.3.tgz#c9f1959598e3fb534cdbe9ce4160e985af11a0fe"
-  dependencies:
-    bluebird-lst "^1.0.5"
-    debug "^3.1.0"
-    fs-extra-p "^4.5.0"
-    sax "^1.2.4"
-
-builder-util@4.1.7:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-4.1.7.tgz#41f165ff6b3c8fde18ef4076e41a35a17c055a9d"
-  dependencies:
-    "7zip-bin" "^2.3.4"
-    bluebird-lst "^1.0.5"
-    builder-util-runtime "^4.0.2"
-    chalk "^2.3.0"
-    debug "^3.1.0"
-    fs-extra-p "^4.5.0"
-    ini "^1.3.5"
-    is-ci "^1.1.0"
-    js-yaml "^3.10.0"
-    lazy-val "^1.0.3"
-    semver "^5.5.0"
-    source-map-support "^0.5.1"
-    stat-mode "^0.2.2"
-    temp-file "^3.1.1"
-    tunnel-agent "^0.6.0"
-
-builder-util@^4.1.7:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-4.2.1.tgz#ca9f0ddb5af1da5fe432129f7c6cbd447b552016"
+builder-util@4.2.2, builder-util@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-4.2.2.tgz#366b2bc32324bfe5565a7e4f13f86238fef5e92b"
   dependencies:
     "7zip-bin" "^2.4.1"
     bluebird-lst "^1.0.5"
-    builder-util-runtime "^4.0.3"
+    builder-util-runtime "^4.0.4"
     chalk "^2.3.0"
     debug "^3.1.0"
     fs-extra-p "^4.5.0"
@@ -241,7 +200,7 @@ builder-util@^4.1.7:
     js-yaml "^3.10.0"
     lazy-val "^1.0.3"
     semver "^5.5.0"
-    source-map-support "^0.5.1"
+    source-map-support "^0.5.3"
     stat-mode "^0.2.2"
     temp-file "^3.1.1"
     tunnel-agent "^0.6.0"
@@ -432,12 +391,16 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
-dmg-builder@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-3.1.1.tgz#6e363919235d509df582c143ad5aa90b1ec0a994"
+detect-libc@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
+
+dmg-builder@3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-3.1.4.tgz#57c53a2b5a1e28526a837430b6ecc7110cadcf63"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util "^4.1.7"
+    builder-util "^4.2.2"
     fs-extra-p "^4.5.0"
     iconv-lite "^0.4.19"
     js-yaml "^3.10.0"
@@ -471,22 +434,22 @@ ejs@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
-electron-builder-lib@19.54.0:
-  version "19.54.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-lib/-/electron-builder-lib-19.54.0.tgz#0029a5c98563d817d1d90721773e11eb84d680ca"
+electron-builder-lib@19.56.0:
+  version "19.56.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-lib/-/electron-builder-lib-19.56.0.tgz#26a6754f89c3e732afbd97868f1fc3f666884149"
   dependencies:
-    "7zip-bin" "^2.3.4"
+    "7zip-bin" "^2.4.1"
     asar-integrity "0.2.4"
     async-exit-hook "^2.0.1"
     bluebird-lst "^1.0.5"
-    builder-util "4.1.7"
-    builder-util-runtime "4.0.2"
+    builder-util "4.2.2"
+    builder-util-runtime "4.0.4"
     chromium-pickle-js "^0.2.0"
     debug "^3.1.0"
-    dmg-builder "3.1.1"
+    dmg-builder "3.1.4"
     ejs "^2.5.7"
     electron-osx-sign "0.4.8"
-    electron-publish "19.54.0"
+    electron-publish "19.56.0"
     fs-extra-p "^4.5.0"
     hosted-git-info "^2.5.0"
     is-ci "^1.1.0"
@@ -501,15 +464,15 @@ electron-builder-lib@19.54.0:
     semver "^5.5.0"
     temp-file "^3.1.1"
 
-electron-builder@^19.54.0:
-  version "19.54.0"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.54.0.tgz#b70b6876f8b9e09a53824bcad43172126c5e2543"
+electron-builder@^19.56.0:
+  version "19.56.0"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.56.0.tgz#ad5a64c73ce50b561fc8e2bcf9309de0f6ad4e5e"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util "4.1.7"
-    builder-util-runtime "4.0.2"
+    builder-util "4.2.2"
+    builder-util-runtime "4.0.4"
     chalk "^2.3.0"
-    electron-builder-lib "19.54.0"
+    electron-builder-lib "19.56.0"
     electron-download-tf "4.3.4"
     fs-extra-p "^4.5.0"
     is-ci "^1.1.0"
@@ -517,7 +480,7 @@ electron-builder@^19.54.0:
     read-config-file "2.1.1"
     sanitize-filename "^1.6.1"
     update-notifier "^2.3.0"
-    yargs "^10.1.1"
+    yargs "^11.0.0"
 
 electron-debug@^1.5.0:
   version "1.5.0"
@@ -586,30 +549,30 @@ electron-osx-sign@0.4.8:
     minimist "^1.2.0"
     plist "^2.1.0"
 
-electron-publish@19.54.0:
-  version "19.54.0"
-  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-19.54.0.tgz#f7521550ce869f54b1c0e88d98620d4be56567e4"
+electron-publish@19.56.0:
+  version "19.56.0"
+  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-19.56.0.tgz#1a0446e69b3085a905c0abdf16125c1c97d108d9"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util "^4.1.7"
-    builder-util-runtime "^4.0.2"
+    builder-util "^4.2.2"
+    builder-util-runtime "^4.0.4"
     chalk "^2.3.0"
     fs-extra-p "^4.5.0"
     mime "^2.2.0"
 
-electron-updater@^2.19.1:
-  version "2.19.1"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.19.1.tgz#2265136b7ef15f7cb06e4032eaaf64382f642437"
+electron-updater@^2.20.1:
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.20.1.tgz#3d2714a3e472fbf198f6053daf8fd12209101aa2"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util-runtime "~4.0.2"
+    builder-util-runtime "~4.0.3"
     electron-is-dev "^0.3.0"
     fs-extra-p "^4.5.0"
     js-yaml "^3.10.0"
     lazy-val "^1.0.3"
     lodash.isequal "^4.5.0"
-    semver "^5.4.1"
-    source-map-support "^0.5.0"
+    semver "^5.5.0"
+    source-map-support "^0.5.2"
 
 electron@1.7.11:
   version "1.7.11"
@@ -636,8 +599,8 @@ error-ex@^1.2.0:
     is-arrayish "^0.2.1"
 
 es6-promise@^4.0.5:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.2.tgz#f722d7769af88bd33bc13ec6605e1f92966b82d9"
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.4.tgz#dc4221c2b16518760bd8c39a52d8f356fc00ed29"
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -1066,12 +1029,12 @@ keyboardevents-areequal@^0.2.1:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/keyboardevents-areequal/-/keyboardevents-areequal-0.2.2.tgz#88191ec738ce9f7591c25e9056de928b40277194"
 
-keytar-prebuild@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/keytar-prebuild/-/keytar-prebuild-4.0.4.tgz#eb6354c68f2b3609dc325ef8709844632652d602"
+keytar-prebuild@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/keytar-prebuild/-/keytar-prebuild-4.1.1.tgz#f31cd3b2e5de743303f8c2f607f29f0117981295"
   dependencies:
-    nan "2.7.0"
-    prebuild-install "^2.2.2"
+    nan "2.8.0"
+    prebuild-install "^2.5.0"
 
 klaw@^1.0.0:
   version "1.3.1"
@@ -1213,13 +1176,13 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-nan@2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
+nan@2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
 
 node-abi@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.1.2.tgz#4da6caceb6685fcd31e7dd1994ef6bb7d0a9c0b2"
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.2.0.tgz#e802ac7a2408e2c0593fb3176ffdf8a99a9b4dec"
   dependencies:
     semver "^5.4.1"
 
@@ -1402,10 +1365,11 @@ plist@^2.1.0:
     xmlbuilder "8.2.2"
     xmldom "0.1.x"
 
-prebuild-install@^2.2.2:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-2.4.1.tgz#c28ba1d1eedc17fbd6b3229a657ffc0fba479b49"
+prebuild-install@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-2.5.0.tgz#6fdd8436069971c76688071f4847d4c891a119f4"
   dependencies:
+    detect-libc "^1.0.3"
     expand-template "^1.0.2"
     github-from-package "0.0.0"
     minimist "^1.2.0"
@@ -1463,8 +1427,8 @@ qs@~6.5.1:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
 rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.1:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.3.tgz#51575a900f8dd68381c710b4712c2154c3e2035b"
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.5.tgz#275cd687f6e3b36cc756baa26dfee80a790301fd"
   dependencies:
     deep-extend "~0.4.0"
     ini "~1.3.0"
@@ -1529,8 +1493,8 @@ redent@^1.0.0:
     strip-indent "^1.0.1"
 
 registry-auth-token@^3.0.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/registry-auth-token/-/registry-auth-token-3.3.1.tgz#fb0d3289ee0d9ada2cbb52af5dfe66cb070d3006"
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/registry-auth-token/-/registry-auth-token-3.3.2.tgz#851fd49038eecb586911115af845260eec983f20"
   dependencies:
     rc "^1.1.6"
     safe-buffer "^5.0.1"
@@ -1608,11 +1572,7 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
-
-semver@^5.5.0:
+"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
@@ -1654,15 +1614,9 @@ sntp@2.x.x:
   dependencies:
     hoek "4.x.x"
 
-source-map-support@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.0.tgz#2018a7ad2bdf8faf2691e5fddab26bed5a2bacab"
-  dependencies:
-    source-map "^0.6.0"
-
-source-map-support@^0.5.1:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.2.tgz#1a6297fd5b2e762b39688c7fc91233b60984f0a5"
+source-map-support@^0.5.2, source-map-support@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.3.tgz#2b3d5fff298cfa4d1afd7d4352d569e9a0158e76"
   dependencies:
     source-map "^0.6.0"
 
@@ -1868,9 +1822,9 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
+typescript@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.1.tgz#bb3682c2c791ac90e7c6210b26478a8da085c359"
 
 unique-string@^1.0.0:
   version "1.0.0"
@@ -1919,8 +1873,8 @@ util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 uuid@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
@@ -2008,15 +1962,15 @@ yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
-yargs-parser@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-8.1.0.tgz#f1376a33b6629a5d063782944da732631e966950"
+yargs-parser@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-9.0.2.tgz#9ccf6a43460fe4ed40a9bb68f48d43b8a68cc077"
   dependencies:
     camelcase "^4.1.0"
 
-yargs@^10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-10.1.1.tgz#5fe1ea306985a099b33492001fa19a1e61efe285"
+yargs@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-11.0.0.tgz#c052931006c5eee74610e5fc0354bedfd08a201b"
   dependencies:
     cliui "^4.0.0"
     decamelize "^1.1.1"
@@ -2029,7 +1983,7 @@ yargs@^10.1.1:
     string-width "^2.0.0"
     which-module "^2.0.0"
     y18n "^3.2.1"
-    yargs-parser "^8.1.0"
+    yargs-parser "^9.0.2"
 
 yauzl@2.4.1:
   version "2.4.1"
