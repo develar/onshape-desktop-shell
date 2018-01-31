@@ -1,6 +1,6 @@
 {
   "name": "Onshape",
-  "version": "0.5.13",
+  "version": "0.5.18",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell)",
   "author": "Vladimir Krivosheev <develar@gmail.com>",
@@ -36,6 +36,7 @@
       ]
     },
     "linux": {
+      "category": "Graphics",
       "target": [
         "AppImage",
         "deb"
@@ -43,18 +44,18 @@
     }
   },
   "dependencies": {
-    "configstore": "^3.1.0",
-    "electron-debug": "^1.2.0",
-    "electron-is-dev": "^0.2.0",
-    "electron-log": "^2.2.6",
-    "electron-updater": "^2.4.4",
-    "keytar-prebuild": "^4.0.3"
+    "configstore": "^3.1.1",
+    "electron-debug": "^1.5.0",
+    "electron-is-dev": "^0.3.0",
+    "electron-log": "^2.2.14",
+    "electron-updater": "^2.19.1",
+    "keytar-prebuild": "^4.0.4"
   },
   "devDependencies": {
-    "@types/debug": "^0.0.29",
-    "electron": "1.7.4",
-    "electron-builder": "next",
-    "rimraf": "^2.6.1",
-    "typescript": "^2.4.1"
+    "@types/debug": "^0.0.30",
+    "electron": "1.7.11",
+    "electron-builder": "^19.54.0",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.6.2"
   }
 }

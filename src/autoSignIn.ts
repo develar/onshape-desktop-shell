@@ -22,12 +22,6 @@
     }
   })
 
-  ipcRenderer.on("notify", (event: any, title: string, message: string) => {
-    new Notification(title, {
-      body: message
-    })
-  })
-
   document.addEventListener("DOMContentLoaded", () => {
      checkLocationAndSignInIfNeed()
    })
