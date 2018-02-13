@@ -36,11 +36,7 @@
       ]
     },
     "linux": {
-      "category": "Graphics",
-      "target": [
-        "AppImage",
-        "deb"
-      ]
+      "category": "Graphics"
     }
   },
   "dependencies": {
