@@ -3,7 +3,7 @@
 // Definitions by: Milan Burda <https://github.com/miniak/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-declare module 'keytar-prebuild' {
+declare module 'keytar' {
     /**
      * Get the stored password for the service and account.
      *

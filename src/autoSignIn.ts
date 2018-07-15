@@ -4,7 +4,7 @@
   const SERVICE_NAME = "org.develar.onshape"
   const LOGIN_NAME = "data"
 
-  const keytar = require("keytar-prebuild")
+  const keytar = require("keytar")
 
   let passwordToSave: Credentials = null
   let foundFormElementTimerId: number = -1
