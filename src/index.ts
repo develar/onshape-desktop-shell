@@ -15,6 +15,13 @@ if (app.makeSingleInstance((commandLine: any[], workingDirectory: string) => {
 }
 else {
   require("electron-debug")()
+  
+  // Enable WebGL for open source drivers and optimize performance
+  app.commandLine.appendSwitch('ignore-gpu-blacklist', 'true')
+  app.commandLine.appendSwitch('enable-gpu-rasterization', 'true')
+  app.commandLine.appendSwitch('enable-zero-copy', 'true')
+  app.commandLine.appendSwitch('disable-software-rasterizer', 'true')
+  app.commandLine.appendSwitch('enable-native-gpu-memory-buffers', 'true')
 
   app.on("ready", () => {
     ipcMain.on("log.error", (event: any, arg: any) => {
