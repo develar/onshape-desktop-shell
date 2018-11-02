@@ -1,19 +1,18 @@
-import {app, ipcMain} from "electron";
-import setMenu from "./AppMenuManager";
-import {log} from "./util";
-import WindowManager from "./WindowManager";
+import { app, ipcMain } from "electron"
+import setMenu from "./AppMenuManager"
+import { log } from "./util"
+import WindowManager from "./WindowManager"
 
-let windowManager: WindowManager = null
-if (app.makeSingleInstance((commandLine: any[], workingDirectory: string) => {
+if (app.requestSingleInstanceLock()) {
+  let windowManager: WindowManager = null
+  app.on("second-instance", () => {
     // someone tried to run a second instance, we should focus our window
     if (windowManager != null) {
       windowManager.focusFirstWindow()
     }
     return true
-  })) {
-  app.quit()
-}
-else {
+  })
+
   require("electron-debug")()
 
   app.on("ready", () => {
@@ -25,4 +24,8 @@ else {
     windowManager = new WindowManager()
     windowManager.openWindows()
   })
+
+}
+else {
+  app.quit()
 }
