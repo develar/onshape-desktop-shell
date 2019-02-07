@@ -51,7 +51,7 @@
     "keytar": "^4.3.0"
   },
   "devDependencies": {
-    "@types/debug": "^0.0.31",
+    "@types/debug": "^4.1.0",
     "electron": "3.0.7",
     "electron-builder": "^20.31.2",
     "rimraf": "^2.6.2",
