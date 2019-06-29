@@ -3,3 +3,6 @@ node_modules/
 npm-debug.log
 app/out
 _gsdata_/
+
+/.idea/workspace.xml
+/out/

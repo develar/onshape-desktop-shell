@@ -1,14 +1,11 @@
-import BrowserWindow = Electron.BrowserWindow
-import WebContents = Electron.WebContents
-import EventEmitter = NodeJS.EventEmitter
 import { app } from "electron"
 
 export interface WindowEvent {
-  sender: BrowserWindow
+  sender: Electron.BrowserWindow
 }
 
 export interface WebContentsEvent {
-  sender: WebContents
+  sender: Electron.WebContents
 }
 
 function isEnvTrue(v: string): boolean {
@@ -17,7 +14,7 @@ function isEnvTrue(v: string): boolean {
 
 const isLogEvent = isEnvTrue(process.env.LOG_EVENTS)
 
-function addHandler(emitter: EventEmitter, event: string, handler: (...args: any[]) => void) {
+function addHandler(emitter: Electron.EventEmitter, event: string, handler: (...args: any[]) => void) {
   if (isLogEvent) {
     emitter.on(event, function (...args: any[]) {
       console.log("%s %s", event, args)
@@ -30,7 +27,7 @@ function addHandler(emitter: EventEmitter, event: string, handler: (...args: any
 }
 
 export class WebContentsSignal {
-  constructor(private emitter: WebContents) {
+  constructor(private emitter: Electron.WebContents) {
   }
 
   navigated(handler: (event: WebContentsEvent, url: string) => void): WebContentsSignal {
@@ -52,12 +49,12 @@ export class WebContentsSignal {
 export class AppSignal {
   private emitter = app
 
-  windowBlurred(handler: (event: any, window: BrowserWindow) => void): AppSignal {
+  windowBlurred(handler: (event: any, window: Electron.BrowserWindow) => void): AppSignal {
     addHandler(this.emitter, "browser-window-blur", handler)
     return this
   }
 
-  windowFocused(handler: (event: any, window: BrowserWindow) => void): AppSignal {
+  windowFocused(handler: (event: any, window: Electron.BrowserWindow) => void): AppSignal {
     addHandler(this.emitter, "browser-window-focus", handler)
     return this
   }

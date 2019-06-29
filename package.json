@@ -1,13 +1,13 @@
 {
   "name": "Onshape",
-  "version": "0.5.19",
+  "version": "0.5.20",
   "license": "MIT",
   "description": "Onshape desktop app (web application shell)",
   "author": "Vladimir Krivosheev <develar@gmail.com>",
   "main": "./out/index.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "start": "yarn install && yarn compile && electron ./app",
+    "start": "yarn install && yarn compile && electron .",
     "compile": "rimraf app/out && tsc",
     "pack": "yarn compile && electron-builder --dir",
     "dist": "yarn compile && electron-builder",
@@ -43,18 +43,18 @@
     }
   },
   "dependencies": {
-    "configstore": "^4.0.0",
-    "electron-debug": "^2.0.0",
-    "electron-is-dev": "^1.0.1",
-    "electron-log": "^2.2.17",
-    "electron-updater": "^3.1.6",
-    "keytar": "^4.3.0"
+    "configstore": "^5.0.0",
+    "electron-debug": "^3.0.0",
+    "electron-is-dev": "^1.1.0",
+    "electron-log": "^3.0.6",
+    "electron-updater": "^4.0.14",
+    "keytar": "^4.11.0"
   },
   "devDependencies": {
-    "@types/debug": "^0.0.31",
-    "electron": "3.0.7",
-    "electron-builder": "^20.31.2",
-    "rimraf": "^2.6.2",
-    "typescript": "^3.1.6"
+    "@types/debug": "^4.1.4",
+    "electron": "5.0.6",
+    "electron-builder": "^21.0.3",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.2"
   }
 }

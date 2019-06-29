@@ -3,14 +3,12 @@ import * as path from "path"
 import AppUpdater from "./AppUpdater"
 import { WebContentsSignal, WindowEvent } from "./electronEventSignals"
 import { DEFAULT_URL, StateManager, WindowItem } from "./StateManager"
-import BrowserWindow = Electron.BrowserWindow
-import BrowserWindowConstructorOptions = Electron.BrowserWindowConstructorOptions
 
 export const WINDOW_NAVIGATED = "windowNavigated"
 
 export default class WindowManager {
   private stateManager = new StateManager()
-  private windows: Array<BrowserWindow> = []
+  private windows: Array<Electron.BrowserWindow> = []
 
   constructor() {
     app.on("window-all-closed", () => {
@@ -28,7 +26,7 @@ export default class WindowManager {
     })
   }
 
-  private static saveWindowState(window: BrowserWindow, descriptor: WindowItem): void {
+  private static saveWindowState(window: Electron.BrowserWindow, descriptor: WindowItem): void {
     if (window.isMaximized()) {
       delete descriptor.width
       delete descriptor.height
@@ -44,7 +42,7 @@ export default class WindowManager {
     }
   }
 
-  private registerWindowEventHandlers(window: BrowserWindow, descriptor: WindowItem): void {
+  private registerWindowEventHandlers(window: Electron.BrowserWindow, descriptor: WindowItem): void {
     window.on("close", () => {
       WindowManager.saveWindowState(window, descriptor)
       const url = window.webContents.getURL()
@@ -99,7 +97,7 @@ export default class WindowManager {
         descriptor.url = DEFAULT_URL
       }
 
-      const options: BrowserWindowConstructorOptions = {
+      const options: Electron.BrowserWindowConstructorOptions = {
         // to avoid visible maximizing
         show: false,
         webPreferences: {
@@ -109,7 +107,7 @@ export default class WindowManager {
         }
       }
 
-      let isMaximized = true
+      let isMaximized = false
       if (descriptor.width != null && descriptor.height != null) {
         options.width = descriptor.width
         options.height = descriptor.height

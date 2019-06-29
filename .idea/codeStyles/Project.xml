@@ -2,10 +2,10 @@
   <code_scheme name="Project" version="173">
     <option name="AUTODETECT_INDENTS" value="false" />
     <option name="LINE_SEPARATOR" value="&#10;" />
-    <JSCodeStyleSettings>
+    <JSCodeStyleSettings version="0">
       <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
     </JSCodeStyleSettings>
-    <TypeScriptCodeStyleSettings>
+    <TypeScriptCodeStyleSettings version="0">
       <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
       <option name="FORCE_QUOTE_STYlE" value="true" />

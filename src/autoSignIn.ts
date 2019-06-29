@@ -12,6 +12,7 @@
 
   const ipcRenderer = require("electron").ipcRenderer
   ipcRenderer.on("maybeUrlChanged", (event: any, newUrl: string) => {
+    console.log(event, newUrl, oldUrl)
     if (oldUrl != newUrl) {
       try {
         urlChanged(oldUrl, window.location)
@@ -31,11 +32,12 @@
     }
   }
 
-  function loadCredentials(): Credentials {
-    const data = keytar.getPassword(SERVICE_NAME, LOGIN_NAME)
+  async function loadCredentials(): Promise<Credentials> {
+    const data = await keytar.getPassword(SERVICE_NAME, LOGIN_NAME)
+    console.log("data: " + data)
     if (isNotEmpty(data)) {
       try {
-        var parsed = JSON.parse(data)
+        const parsed = JSON.parse(data)
         if (Array.isArray(parsed)) {
           if (parsed.length == 2) {
             return new Credentials(parsed[0], parsed[1])
@@ -47,7 +49,7 @@
         }
       }
       catch (e) {
-        console.error(e)
+        console.error("cannot parse data: " + data, e)
         ipcRenderer.send("log.error", e)
       }
     }
@@ -69,8 +71,8 @@
     input.dispatchEvent(new Event("change", {"bubbles": true}))
   }
 
-  function fillAndSubmit(formElement: HTMLFormElement) {
-    const credentials = loadCredentials()
+  async function fillAndSubmit(formElement: HTMLFormElement) {
+    const credentials = await loadCredentials()
     if (credentials != null && isNotEmpty(credentials.login)) {
       setValue(getInputElement("email"), credentials.login)
 
@@ -81,7 +83,7 @@
       }
     }
 
-    var superOnSubmit: any = formElement.onsubmit
+    const superOnSubmit: any = formElement.onsubmit
     formElement.onsubmit = event => {
       passwordToSave = null
       if (superOnSubmit != null) {
@@ -101,6 +103,7 @@
     if (formElement != null) {
       console.log("form element found")
       fillAndSubmit(formElement)
+        .catch(e => console.error(e))
     }
     else {
       console.log("form element not found, schedule")
@@ -123,8 +126,9 @@
     }
 
     if (passwordToSave != null) {
-      if (newLocation.host == "cad.onshape.com" && oldUrl.endsWith("/signin") && newLocation.pathname != "/signup/forgotpassword") {
-        keytar.replacePassword(SERVICE_NAME, LOGIN_NAME, JSON.stringify([passwordToSave.login, passwordToSave.password]))
+      if (newLocation.host == "cad.onshape.com" && (oldUrl == null || oldUrl.endsWith("/signin")) && newLocation.pathname != "/signup/forgotpassword") {
+        keytar.setPassword(SERVICE_NAME, LOGIN_NAME, JSON.stringify([passwordToSave.login, passwordToSave.password]))
+          .catch((e: any) => console.error(e))
       }
       passwordToSave = null
     }

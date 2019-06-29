@@ -1,5 +1,3 @@
-"use strict"
-
 import * as os from "os"
 import * as path from "path"
 import ConfigStore = require("configstore")
