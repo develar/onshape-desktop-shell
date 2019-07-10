@@ -1,7 +1,4 @@
-import * as os from "os"
-import * as path from "path"
-import ConfigStore = require("configstore")
-import { isDev } from "./util"
+import * as ConfigStore from "electron-store"
 
 export const DEFAULT_URL = "https://cad.onshape.com/"
 
@@ -12,45 +9,29 @@ function defaultWindows() {
 }
 
 export class StateManager {
-  private store = new ConfigStore("onshape-unofficial", {windows: defaultWindows()})
+  private store = new ConfigStore()
 
-  private data: Config
-
-  constructor() {
-    if (os.platform() == "darwin") {
-      this.store.path = path.join(os.homedir(), "Library", "Preferences", "org.develar.onshape" + (isDev() ? "-dev" : "") + ".json")
-    }
-  }
+  private windows: Array<WindowItem> = defaultWindows()
 
   restoreWindows(): void {
-    let data = this.getOrLoadData()
-    data.windows = defaultWindows()
-    this.store.all = data
-  }
-
-  private getOrLoadData(): Config {
-    let data = this.data
-    if (data == null) {
-      data = this.store.all
-      this.data = data
-    }
-    return data
+    this.store.delete("windows")
+    this.windows = defaultWindows()
   }
 
   getWindows(): Array<WindowItem> {
-    return this.getOrLoadData().windows
+    const result = this.store.get("windows")
+    if (result == null || !Array.isArray(result)) {
+      this.windows = defaultWindows()
+    }
+    else {
+      this.windows = result
+    }
+    return this.windows
   }
 
   save(): void {
-    const data = this.data
-    if (data != null) {
-      this.store.all = data
-    }
+    this.store.set("windows", this.windows)
   }
-}
-
-interface Config {
-  windows: Array<WindowItem>
 }
 
 export interface WindowItem {

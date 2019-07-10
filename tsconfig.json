@@ -6,21 +6,12 @@
     "removeComments": true,
     "outDir": "out",
     "newLine": "LF",
-    "noResolve": true,
     "noEmitOnError": true,
     "inlineSources": true,
     "sourceMap": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true
+    "noUnusedLocals": true
   },
   "include": [
-    "node_modules/@types/*/*.d.ts",
-    "node_modules/electron/electron.d.ts",
-    "node_modules/electron-updater/out/*.d.ts",
-    "node_modules/electron-builder-http/out/*.d.ts",
-    "src/*.ts",
-    "typings/**/*.d.ts"
-  ],
-  "exclude": [
+    "src/*.ts"
   ]
 }
