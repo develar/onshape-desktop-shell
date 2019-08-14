@@ -54,7 +54,7 @@
     "@types/debug": "^4.1.4",
     "electron": "5.0.6",
     "electron-builder": "^21.0.14",
-    "rimraf": "^2.6.3",
+    "rimraf": "^2.7.1",
     "typescript": "^3.5.2"
   }
 }
