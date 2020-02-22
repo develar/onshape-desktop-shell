@@ -43,7 +43,7 @@
     }
   },
   "dependencies": {
-    "electron-store": "^4.0.0",
+    "electron-store": "^5.1.1",
     "electron-debug": "^3.0.0",
     "electron-is-dev": "^1.1.0",
     "electron-log": "^3.0.6",
