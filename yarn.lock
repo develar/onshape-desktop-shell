@@ -677,10 +677,10 @@ electron-localshortcut@^3.1.0:
     keyboardevent-from-electron-accelerator "^1.1.0"
     keyboardevents-areequal "^0.2.1"
 
-electron-log@^3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-3.0.6.tgz#2291375572f6be5889f06fb32a35eab2930a1728"
-  integrity sha512-osPLk8m9+Ylo0k/okevdHUGsKpCNGxg206TxG2Ch8slGvlTZLI0955Ig4e+nJ6fHVDxFMv5dWkn2y8hwi0aENg==
+electron-log@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-4.1.4.tgz#b027c76b42b622c59fcf921cf8c67f1588b6a363"
+  integrity sha512-lRXc8yENqbViOLn2U91DzoNno14wgNWuURgliLXxLtXCVTxB1FK6J0zj7o/SrtPAIcXQa2JPXKlM/qRxP8D9iQ==
 
 electron-osx-sign@0.4.11:
   version "0.4.11"
